@@ -1,0 +1,7 @@
+# Local exports / backups (may contain progress photos)
+*.backup.json
+full-backup-*.json
+day-template-*.json
+ai-pack-*.json
+exports/
+backups/
