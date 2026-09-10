@@ -2,6 +2,24 @@
 
 This app is static. **Photos and logs stay in the browser on each device** (IndexedDB). Hosting the code does not upload your images — unless you export a full backup or add a sync backend later.
 
+## Deploy (Cloudflare Pages)
+
+One-time in a **normal terminal** (Cursor agent cannot complete browser login for you):
+
+```powershell
+cd C:\Users\kelkess\cut-tracker
+npx --yes wrangler@4 login
+powershell -ExecutionPolicy Bypass -File .\deploy.ps1
+```
+
+Then lock it:
+
+1. [Cloudflare Zero Trust](https://one.dash.cloudflare.com/) → **Access** → **Applications** → Add application
+2. Protect your `cut-tracker*.pages.dev` URL
+3. Policy: **Allow** only your email
+
+iPhone: Safari → open URL → Share → **Add to Home Screen**.
+
 ## Before you deploy
 
 - [ ] Prefer a **private** host gate (Cloudflare Access, Netlify password/invite) — not a public discoverable URL alone.
