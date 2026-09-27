@@ -3,299 +3,748 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Cut Tracker</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#0f6b5c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="KeJu" />
+  <title>KeJu Fit Tracker</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="icon-180.png" sizes="180x180" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=126" />
 </head>
 <body>
-  <div class="app">
-    <header class="header">
-      <div>
-        <p class="eyebrow" id="activePhaseLabel">Phase</p>
-        <h1>Cut Tracker</h1>
+  <div id="undoBar" class="undo-bar" hidden aria-hidden="true" style="display:none">
+    <span id="undoLabel">Saved</span>
+    <button type="button" class="btn tiny" id="undoBtn">Undo</button>
+  </div>
+
+  <div id="actionProgress" class="action-progress" hidden aria-live="polite" aria-busy="true">
+    <div class="action-progress-card">
+      <p class="action-progress-label" id="actionProgressLabel">Working…</p>
+      <div class="action-progress-track" aria-hidden="true">
+        <div class="action-progress-bar" id="actionProgressBar"></div>
       </div>
-      <div class="header-stats">
-        <div class="stat"><span class="stat-label">7-day avg</span><span class="stat-value" id="avg7">—</span></div>
-        <div class="stat"><span class="stat-label">phase-week Δ</span><span class="stat-value" id="weekDelta">—</span></div>
+      <p class="action-progress-pct" id="actionProgressPct">0%</p>
+      <p class="action-progress-done" id="actionProgressDone" hidden>Done</p>
+      <button type="button" class="btn tiny" id="actionProgressCancel" style="margin-top:12px">Cancel</button>
+    </div>
+  </div>
+
+  <div class="app" id="appShell">
+    <header class="header">
+      <div class="brand-block">
+        <p class="brand-wordmark" id="brandWordmark">KeJu</p>
+        <p class="eyebrow" id="activePhaseLabel">Phase</p>
       </div>
     </header>
 
-    <nav class="tabs">
-      <button class="tab active" data-tab="today" type="button">Today</button>
-      <button class="tab" data-tab="phases" type="button">Phases</button>
-      <button class="tab" data-tab="diet" type="button">Diet</button>
-      <button class="tab" data-tab="training" type="button">Training</button>
-      <button class="tab" data-tab="week" type="button">Week</button>
-      <button class="tab" data-tab="photos" type="button">Photos</button>
-      <button class="tab" data-tab="analysis" type="button">Analysis</button>
-      <button class="tab" data-tab="data" type="button">Data</button>
-    </nav>
-
-    <main>
-      <!-- TODAY — day journey (save each part when it happens) -->
+    <main class="main-scroll">
+      <!-- TODAY -->
       <section id="panel-today" class="panel active">
-        <div class="card journey-bar-card">
+        <div class="card next-card">
+          <p class="next-label">Up next</p>
+          <p class="next-title" id="nextActionTitle">Morning weigh-in</p>
+          <p class="next-avg" id="nextAvgHint"></p>
+          <button type="button" class="btn primary" id="nextActionBtn">Go</button>
+        </div>
+
+        <div class="card run-card" id="phaseRunCard" hidden>
+          <p class="insight-kicker">This phase</p>
+          <div class="run-head">
+            <strong id="phaseRunTitle">Day 1 of 14</strong>
+            <span class="hint" id="phaseRunStreak"></span>
+          </div>
+          <div class="run-track" aria-hidden="true"><div class="run-bar" id="phaseRunBar"></div></div>
+          <p class="hint quiet" id="phaseRunHint"></p>
+        </div>
+
+        <div class="card setup-card phase-end-card" id="phaseEndBanner" hidden>
+          <p class="insight-kicker" id="phaseEndKicker">Phase</p>
+          <h2 id="phaseEndBannerTitle">Last day of this phase</h2>
+          <p class="hint" id="phaseEndBannerHint">Finish today’s log. Tomorrow this phone will ask for the next pack (upload JSON from <code>templates</code>).</p>
+          <ul class="score-list" id="phaseEndScore"></ul>
+          <div class="insight-actions">
+            <button type="button" class="btn ghost" id="phaseEndCreateBtn">Create next phase now</button>
+          </div>
+        </div>
+
+        <div class="card nudge-card" id="nudgeCard" hidden>
           <div class="card-head">
-            <h2>Today’s journey</h2>
-            <button class="btn ghost" id="loadTodayBtn" type="button">Jump to today</button>
+            <h2>Habits</h2>
+            <button type="button" class="btn tiny ghost" id="nudgeDismissBtn">Hide today</button>
           </div>
-          <label class="field"><span>Date</span><input type="date" id="logDate" /></label>
-          <p class="hint">Save each step when you do it — nothing waits until tonight. Or fill via AI day template.</p>
-          <div class="row-actions day-tpl-actions">
-            <button class="btn tiny" id="exportDayTplBtn" type="button">Download day template</button>
-            <label class="btn tiny file-btn">Upload day template<input type="file" id="importDayTpl" accept=".json" hidden /></label>
+          <ul class="nudge-list" id="nudgeList"></ul>
+        </div>
+
+        <div class="card today-top">
+          <div class="today-date-row">
+            <label class="field tight"><span>Date</span><input type="date" id="logDate" /></label>
+            <button class="btn ghost" id="loadTodayBtn" type="button">Today</button>
           </div>
-          <div class="journey-nav" id="journeyNav"></div>
-          <p class="hint" id="dayAvgHint"></p>
+          <p class="hint quiet" id="dayAvgHint"></p>
           <p class="toast" id="toast" hidden></p>
         </div>
 
-        <!-- 1 Morning -->
-        <div class="card journey-step" id="step-morning" data-step="morning">
-          <div class="card-head"><h2>1 · Morning check-in</h2><span class="step-status" data-status-for="morning"></span></div>
+        <div class="journey-sticky" id="journeySticky">
+          <div class="journey-nav" id="journeyNav"></div>
+        </div>
+
+        <div class="card journey-step is-next" id="step-morning" data-step="morning">
+          <div class="card-head"><h2>Morning</h2><span class="step-status" data-status-for="morning"></span></div>
           <div class="grid-2">
-            <label class="field"><span>Morning weight (kg)</span><input type="number" id="weight" step="0.1" /></label>
+            <label class="field"><span>Weight (kg)</span><input type="number" id="weight" step="0.1" inputmode="decimal" /></label>
+            <label class="field"><span>Sleep last night (h)</span><input type="number" id="sleep" step="0.5" inputmode="decimal" /></label>
             <label class="field"><span>Day type</span>
               <select id="trainedSelect">
-                <option value="rest">Rest day</option>
-                <option value="train">Training day</option>
+                <option value="rest">Rest</option>
+                <option value="train">Train</option>
               </select>
             </label>
           </div>
-          <details class="measures"><summary>Optional measurements (cm)</summary><div class="grid-2" id="measureFields"></div></details>
+          <details class="measures">
+            <summary>Body composition & tape (optional)</summary>
+            <p class="hint quiet">From your scale / InBody — leave blank if you skip it today.</p>
+            <label class="btn ghost file-btn full" style="margin-bottom:10px">Scan scale report
+              <input type="file" id="scaleReportInput" accept="image/*" hidden />
+            </label>
+            <p class="hint quiet">OCR fills weight + body composition only (not tape). Review before Save morning.</p>
+            <p class="hint quiet" id="scaleOcrStatus"></p>
+            <div id="measureFields"></div>
+          </details>
           <button class="btn primary section-save" type="button" data-save="morning">Save morning</button>
         </div>
 
-        <!-- 2 Coffee -->
         <div class="card journey-step" id="step-coffee" data-step="coffee">
-          <div class="card-head"><h2>2 · Coffee</h2><span class="step-status" data-status-for="coffee"></span></div>
-          <p class="hint">Tap +1 whenever you have a cup. Saved instantly.</p>
+          <div class="card-head"><h2>Coffee</h2><span class="step-status" data-status-for="coffee"></span></div>
           <div class="coffee-row">
-            <button class="btn ghost" type="button" id="coffeeMinus">−</button>
+            <button class="btn ghost tap-lg" type="button" id="coffeeMinus" aria-label="Minus">−</button>
             <div class="coffee-count"><span id="coffeesDisplay">0</span><input type="hidden" id="coffees" value="0" /></div>
-            <button class="btn primary" type="button" id="coffeePlus">+1 coffee</button>
+            <button class="btn primary tap-lg" type="button" id="coffeePlus">+1</button>
           </div>
-          <button class="btn ghost section-save" type="button" data-save="coffee">Save coffee count</button>
         </div>
 
-        <!-- 3 Meals -->
         <div class="card journey-step" id="step-meals" data-step="meals">
-          <div class="card-head"><h2>3 · Meals</h2><span class="step-status" data-status-for="meals"></span><span class="badge" id="mealCheckCount">0/0</span></div>
+          <div class="card-head"><h2>Meals</h2><span class="step-status" data-status-for="meals"></span><span class="badge" id="mealCheckCount">0/0</span></div>
           <p class="hint" id="mealTargets"></p>
-          <p class="hint">Check a meal when you finish it — each meal saves on its own.</p>
+          <div class="kcal-left" id="kcalLeftToday" hidden></div>
+          <p class="hint quiet" id="mealPackNotes"></p>
           <div id="mealCards" class="meal-cards"></div>
-          <div class="grid-2" style="margin-top:12px">
-            <label class="field"><span>Lunch carb</span><select id="lunchCarb"><option value="">—</option><option value="rice">Rice</option><option value="bread">Bread</option></select></label>
-            <label class="field"><span>Fat used</span><select id="fatChoice"><option value="">—</option><option value="oil">Oil</option><option value="mayo">Light mayo</option></select></label>
-          </div>
-          <button class="btn primary section-save" type="button" data-save="meals">Save meal choices</button>
         </div>
 
-        <!-- 4 Workout -->
         <div class="card journey-step" id="step-workout" data-step="workout">
-          <div class="card-head"><h2>4 · Workout</h2><span class="step-status" data-status-for="workout"></span></div>
-          <p class="hint" id="workoutHint">Only on training days. Save after each exercise or when the session is done.</p>
+          <div class="card-head"><h2>Workout</h2><span class="step-status" data-status-for="workout"></span></div>
+          <p class="hint" id="workoutHint">Training days only</p>
           <label class="field"><span>Session</span><select id="sessionSelect"></select></label>
           <div id="workoutLog"></div>
-          <button class="btn primary section-save" type="button" data-save="workout">Save workout so far</button>
+          <button class="btn primary section-save" type="button" data-save="workout">Save workout</button>
         </div>
 
-        <!-- 5 Wrap -->
         <div class="card journey-step" id="step-wrap" data-step="wrap">
-          <div class="card-head"><h2>5 · Evening wrap</h2><span class="step-status" data-status-for="wrap"></span></div>
+          <div class="card-head"><h2>Evening</h2><span class="step-status" data-status-for="wrap"></span></div>
           <div class="grid-2">
-            <label class="field"><span>Steps</span><input type="number" id="steps" step="100" /></label>
-            <label class="field"><span>Sleep (h)</span><input type="number" id="sleep" step="0.5" /></label>
-            <label class="field"><span>Hunger 1–5</span><input type="number" id="hunger" min="1" max="5" /></label>
-            <label class="field"><span>Energy 1–5</span><input type="number" id="energy" min="1" max="5" /></label>
+            <label class="field"><span>Steps</span><input type="number" id="steps" step="100" inputmode="numeric" /></label>
+            <label class="field"><span>Hunger 1–5</span><input type="number" id="hunger" min="1" max="5" inputmode="numeric" /></label>
+            <label class="field"><span>Energy 1–5</span><input type="number" id="energy" min="1" max="5" inputmode="numeric" /></label>
           </div>
           <label class="field"><span>Notes</span><textarea id="notes" rows="2"></textarea></label>
-          <button class="btn primary section-save" type="button" data-save="wrap">Save evening wrap</button>
+          <button class="btn primary section-save" type="button" data-save="wrap">Save evening</button>
         </div>
 
-        <!-- 6 Photos -->
-        <div class="card journey-step" id="step-photos" data-step="photos">
+        <div class="card insight-card" id="insightCard">
+          <p class="insight-kicker">This date</p>
           <div class="card-head">
-            <h2>6 · Photos</h2>
-            <span class="step-status" data-status-for="photos"></span>
-            <label class="btn tiny file-btn">Add photo<input type="file" id="photoInput" accept="image/*" multiple hidden /></label>
+            <h2 id="insightCardTitle">Daily insight</h2>
+            <span class="hint" id="insightCardMeta"></span>
           </div>
-          <p class="hint">Photos save as soon as you add them.</p>
-          <div class="photo-grid" id="dayPhotoGrid"></div>
+          <p class="insight-empty" id="insightEmpty">No insight for this date yet. Download the day’s JSON, run a stronger AI on your computer, and paste the reply — or generate here.</p>
+          <pre class="insight-body" id="insightCardBody" hidden></pre>
+          <div class="insight-actions">
+            <button type="button" class="btn primary" id="runDailyInsightBtn">Get insight</button>
+            <button type="button" class="btn ghost" id="dlDailyInsightBtn">Download JSON</button>
+          </div>
+          <details class="insight-import" id="insightImportFold">
+            <summary>Paste an external reply</summary>
+            <textarea id="insightPaste" rows="4" placeholder="Paste the AI write-up for this date…"></textarea>
+            <div class="row-actions wrap">
+              <button type="button" class="btn primary" id="importDailyInsightBtn">Save to this date</button>
+              <label class="btn tiny file-btn">From file<input type="file" id="insightFile" accept=".json,text/plain" hidden /></label>
+            </div>
+          </details>
         </div>
 
-        <!-- hidden compat fields -->
         <input type="checkbox" id="trained" hidden />
         <h2 id="mealPlanTitle" hidden>Meals</h2>
+        <p class="brand-tag" id="brandTagline" hidden>Cut · meals · training — logged your way</p>
+        <p class="brand-product" id="brandProduct" hidden>Fit Tracker</p>
       </section>
 
       <!-- PHASES -->
       <section id="panel-phases" class="panel">
+        <button type="button" class="more-back" data-tab="more">More</button>
         <div class="card">
           <div class="card-head"><h2>Phases (2 weeks each)</h2><button class="btn tiny" id="newPhaseBtn" type="button">+ New phase</button></div>
-          <p class="hint">Each phase has exactly one diet plan and one training plan. From→To is always 14 days.</p>
+          <p class="hint">Each phase has one diet + one training plan. From→To is always 14 days. On create, load a phase pack to fill everything at once.</p>
           <ul class="history-list" id="phaseList"></ul>
         </div>
         <div class="card" id="phaseEditorCard">
-          <h2>Edit selected phase</h2>
+          <h2 id="phaseEditorTitle">Create a phase</h2>
+          <p class="hint" id="phaseEditorHint">Pick a start date, then Create. Name is auto (1, 2, 3…). Photos come after the phase exists.</p>
           <input type="hidden" id="editPhaseId" />
-          <label class="field"><span>Name</span><input id="phaseName" /></label>
+          <p class="phase-auto-name" id="phaseAutoName">Phase <strong>1</strong></p>
+          <input type="hidden" id="phaseName" value="1" />
           <div class="grid-2">
             <label class="field"><span>From</span><input type="date" id="phaseStart" /></label>
-            <label class="field"><span>To (auto)</span><input type="date" id="phaseEnd" readonly /></label>
+            <label class="field"><span>To (auto · 14 days)</span><input type="date" id="phaseEnd" readonly /></label>
           </div>
-          <label class="field"><span>Notes</span><textarea id="phaseNotes" rows="3"></textarea></label>
+          <label class="field"><span>Goal loss % bodyweight / week</span>
+            <input type="number" id="phaseGoalLossPct" step="0.05" min="0.3" max="1.5" />
+          </label>
+          <p class="hint quiet">Typical cut: 0.5–1.0%. Used for Progress pace vs this phase.</p>
+          <label class="field"><span>Training days / week</span>
+            <input type="number" id="phaseTrainDays" min="0" max="7" step="1" placeholder="e.g. 4" />
+          </label>
+          <p class="hint quiet">Used for shopping list weekly totals (rest days = 7 − this). Override anytime.</p>
+          <label class="field"><span>Notes</span><textarea id="phaseNotes" rows="3" placeholder="Optional"></textarea></label>
+
+          <div class="tpl-library" id="phasePackBlock">
+            <h3 class="subhead">Plan pack</h3>
+            <p class="hint quiet" id="phasePackHint">Plan comes from the JSON pack. Edit templates on the PC, rebuild, redeploy, then reload here.</p>
+            <label class="field" id="phasePackSelectWrap"><span>This phase uses</span>
+              <select id="phaseTplLibrary"></select>
+            </label>
+            <div id="phasePackEditActions" hidden>
+              <button type="button" class="btn primary full" id="phaseRefreshPackBtn">Reload shipped pack</button>
+              <p class="hint quiet pack-step">After you change the JSON and redeploy, tap this on each phone.</p>
+            </div>
+            <div id="phasePackCreateActions">
+              <button type="button" class="btn primary full" id="useReadyPackBtn">Create phase from this pack</button>
+              <label class="btn ghost full file-btn">Or upload a JSON<input type="file" id="phasePackFile" accept=".json,application/json" hidden /></label>
+            </div>
+            <p class="hint quiet" id="phaseTplStatus"></p>
+            <textarea id="phasePackText" hidden></textarea>
+          </div>
+
+          <div id="phasePhotosBlock" hidden>
+            <h3 class="subhead">Phase-start photos</h3>
+            <p class="hint quiet">Progress photos only at the start of each phase (not daily).</p>
+            <label class="btn primary file-btn full">Add phase-start photo<input type="file" id="photoInput" accept="image/*" multiple hidden /></label>
+            <div class="photo-grid" id="phasePhotoGrid"></div>
+          </div>
           <div class="row-actions wrap">
-            <button class="btn primary" id="savePhaseBtn" type="button">Save phase</button>
-            <button class="btn tiny danger" id="deletePhaseBtn" type="button">Remove phase</button>
+            <button class="btn primary" id="savePhaseBtn" type="button">Create phase</button>
+            <button class="btn tiny" id="cancelPhaseBtn" type="button" hidden>Cancel</button>
+            <button class="btn tiny danger" id="deletePhaseBtn" type="button" hidden>Remove phase</button>
           </div>
         </div>
       </section>
 
       <!-- DIET -->
       <section id="panel-diet" class="panel">
+        <button type="button" class="more-back" data-tab="more">More</button>
         <div class="card">
           <h2>Diet plan for phase</h2>
           <label class="field"><span>Phase</span><select id="dietPhaseSelect"></select></label>
           <p class="hint" id="dietPhaseMeta"></p>
-          <div class="row-actions wrap">
-            <button class="btn tiny" id="exportDietTplBtn" type="button">Download diet template</button>
-            <label class="btn tiny file-btn">Upload diet template<input type="file" id="importDietTpl" accept=".json" hidden /></label>
-            <button class="btn tiny danger" id="deleteDietBtn" type="button">Remove diet plan</button>
-          </div>
         </div>
         <div class="card" id="dietEditorWrap">
-          <label class="field"><span>Diet plan name</span><input id="dietName" /></label>
+          <p class="hint quiet" id="dietAutoName">Diet name matches the phase number.</p>
+          <input type="hidden" id="dietName" />
           <label class="field"><span>Notes</span><textarea id="dietNotes" rows="2"></textarea></label>
+          <p class="hint quiet">Recipes stay in the pack JSON (2–3 per cook meal, optional video, prep minutes). Edit those on the PC.</p>
           <div class="day-switch">
             <button type="button" class="chip active" data-diet-view="training">Training day</button>
             <button type="button" class="chip" data-diet-view="rest">Rest day</button>
           </div>
           <div id="dietTargets" class="grid-2"></div>
-          <div id="dietReference" class="diet-reference"></div>
+          <h3 class="subhead">Meals</h3>
+          <p class="hint quiet">Edit foods one per line. Switch Training / Rest above.</p>
           <div id="mealEditor"></div>
-          <button class="btn primary" id="saveDietBtn" type="button">Save diet plan</button>
+
+          <h3 class="subhead">Food swaps</h3>
+          <p class="hint quiet">Same list as More → Food swaps. Edit options here, then Save diet — or edit anytime on the Food swaps tab.</p>
+          <div id="foodSwapEditor"></div>
+
+          <button class="btn primary" id="saveDietBtn" type="button" style="margin-top:12px">Save diet &amp; share</button>
+        </div>
+      </section>
+
+      <!-- FOOD SWAPS -->
+      <section id="panel-swaps" class="panel">
+        <button type="button" class="more-back" data-tab="more">More</button>
+        <div class="card">
+          <h2>Food swaps</h2>
+          <p class="hint">Interchangeable options for this phase’s diet. Edit or delete any row; + Option / + Swap group to add. Changes save immediately.</p>
+          <label class="field"><span>Phase</span><select id="swapPhaseSelect"></select></label>
+          <p class="hint quiet" id="swapPhaseMeta"></p>
+          <div class="row-actions wrap">
+            <button type="button" class="btn tiny" id="swapAddGroupBtn">+ Swap group</button>
+          </div>
+          <p class="hint quiet" id="swapStatus"></p>
+          <div class="swap-list-head" aria-hidden="true"><span>Option</span><span></span></div>
+          <ul class="swap-list" id="swapList"></ul>
+        </div>
+      </section>
+
+      <!-- FOOD RESCUE -->
+      <section id="panel-rescue" class="panel">
+        <div class="card" id="foodRescueCard">
+          <h2>Food rescue</h2>
+          <p class="hint">Messed up a meal, ate out, or missing an ingredient? Pick the meal if you know it — the answer will cover this plate and the rest of today.</p>
+          <label class="field"><span>Phase</span><select id="rescuePhaseSelect"></select></label>
+          <label class="field"><span>This meal</span>
+            <select id="rescueMealSelect">
+              <option value="">Whole day / not sure</option>
+            </select>
+          </label>
+          <p class="hint" id="rescuePhaseMeta"></p>
+          <div id="foodRescueChat" class="food-rescue-chat"></div>
+          <label class="field"><span>What happened?</span>
+            <textarea id="foodRescueInput" rows="3" placeholder="e.g. No chicken on lunch — only eggs and rice left. Or: ate pizza instead of this meal, what now?"></textarea>
+          </label>
+          <div class="row-actions wrap">
+            <button type="button" class="btn primary" id="foodRescueAskBtn">Ask AI</button>
+            <button type="button" class="btn ghost" id="foodRescueClearBtn">Clear chat</button>
+          </div>
+          <p class="hint quiet" id="foodRescueStatus"></p>
+        </div>
+      </section>
+
+      <!-- PREP -->
+      <section id="panel-prep" class="panel">
+        <button type="button" class="more-back" data-tab="more">More</button>
+        <div class="card prep-hero">
+          <p class="insight-kicker">Friday cook · Sun–Thu eat</p>
+          <h2>Meal prep</h2>
+          <label class="field tight"><span>Phase</span><select id="prepPhaseSelect"></select></label>
+          <div class="prep-week" id="prepWeek" hidden></div>
+          <p class="hint" id="prepNotes"></p>
+          <p class="hint quiet" id="prepStatus"></p>
+          <div class="row-actions wrap">
+            <button type="button" class="btn ghost" id="prepShopBtn">Shopping list</button>
+          </div>
+          <details class="insight-import">
+            <summary>Recipes only (not a full pack)</summary>
+            <div class="row-actions wrap">
+              <button type="button" class="btn tiny ghost" id="prepDownloadBtn">Download recipe JSON</button>
+              <label class="btn tiny file-btn">Upload recipes<input type="file" id="prepFile" accept=".json,application/json" hidden /></label>
+            </div>
+          </details>
+        </div>
+        <div id="prepList" class="prep-list"></div>
+      </section>
+
+      <!-- SHOPPING -->
+      <section id="panel-shopping" class="panel">
+        <button type="button" class="more-back" data-tab="more">More</button>
+        <div class="card">
+          <h2>Weekly shopping list</h2>
+          <p class="hint">What to buy for 7 days — amounts in supermarket units (eggs, kg, litres). Edit or delete any row; + Item adds a custom line (kept on Rebuild). Checkmarks reset Friday morning.</p>
+          <label class="field"><span>Phase</span><select id="shopPhaseSelect"></select></label>
+          <p class="hint quiet" id="shopMeta"></p>
+          <div class="row-actions wrap">
+            <button type="button" class="btn tiny primary" id="shopRegenBtn">Rebuild from diet</button>
+            <button type="button" class="btn tiny" id="shopAddItemBtn">+ Item</button>
+            <button type="button" class="btn tiny ghost" id="shopUncheckBtn">Uncheck all</button>
+          </div>
+          <p class="hint quiet" id="shopStatus"></p>
+          <div class="shop-list-head" aria-hidden="true"><span>Item</span><span>Buy</span><span></span></div>
+          <ul class="shop-list" id="shopList"></ul>
         </div>
       </section>
 
       <!-- TRAINING -->
       <section id="panel-training" class="panel">
+        <button type="button" class="more-back" data-tab="more">More</button>
         <div class="card">
-          <h2>Training plan for phase</h2>
+          <h2 id="trainPanelTitle">Schedule</h2>
           <label class="field"><span>Phase</span><select id="trainPhaseSelect"></select></label>
-          <p class="hint">One training plan per phase. Edit sessions/exercises, YouTube links, targets.</p>
-          <div class="row-actions wrap">
-            <button class="btn tiny" id="exportTrainTplBtn" type="button">Download training template</button>
-            <label class="btn tiny file-btn">Upload training template<input type="file" id="importTrainTpl" accept=".json" hidden /></label>
-            <button class="btn tiny danger" id="deleteTrainBtn" type="button">Remove training plan</button>
+          <p class="hint" id="trainPhaseMeta"></p>
+          <div class="day-switch" id="trainViewSwitch">
+            <button type="button" class="chip active" data-train-view="schedule">Schedule</button>
+            <button type="button" class="chip" data-train-view="sessions">Sessions</button>
           </div>
         </div>
-        <div class="card" id="trainEditorWrap">
-          <label class="field"><span>Plan name</span><input id="trainName" /></label>
+        <div class="card" id="trainScheduleCard">
+          <p class="hint">One session and gym time per weekday. Today follows this.</p>
+          <div id="trainSchedule" class="train-schedule"></div>
+        </div>
+        <div class="card" id="trainEditorWrap" hidden>
+          <p class="hint quiet" id="trainAutoName">Tap a session to edit its lifts.</p>
+          <input type="hidden" id="trainName" />
+          <div class="grid-2">
+            <label class="field"><span>Default rest between sets (sec)</span>
+              <input type="number" id="trainRestSets" min="0" max="600" step="5" placeholder="90" />
+            </label>
+            <label class="field"><span>Default rest between exercises (sec)</span>
+              <input type="number" id="trainRestEx" min="0" max="600" step="5" placeholder="120" />
+            </label>
+          </div>
+          <p class="hint quiet">Defaults apply when an exercise leaves rest blank.</p>
           <label class="field"><span>Notes</span><textarea id="trainNotes" rows="2"></textarea></label>
           <div id="trainEditor"></div>
           <button class="btn tiny" id="addSessionBtn" type="button">+ Add session</button>
-          <button class="btn primary" id="saveTrainBtn" type="button">Save training plan</button>
+          <button class="btn primary" id="saveTrainBtn" type="button">Save training &amp; share</button>
         </div>
       </section>
 
-      <!-- WEEK -->
-      <section id="panel-week" class="panel">
-        <div class="card"><h2>Phase week</h2><p class="hint">Week 1 = days 1–7 · Week 2 = days 8–14 of the 2-week phase.</p><div class="week-metrics" id="weekMetrics"></div></div>
-        <div class="card"><h2>Weights this phase week</h2><ul class="weight-list" id="weightList"></ul></div>
-        <div class="card"><h2>Decision helper</h2><p class="hint" id="decisionHint"></p></div>
-        <div class="card"><h2>Days in phase</h2><ul class="history-list" id="recentList"></ul></div>
-      </section>
-
       <!-- PHOTOS -->
-      <section id="panel-photos" class="panel"><div class="card"><h2>All photos</h2><div id="allPhotos" class="photo-timeline"></div></div></section>
+      <section id="panel-photos" class="panel">
+        <div class="card">
+          <h2>Compare phase photos</h2>
+          <p class="hint">Photos are taken at phase start only — compare earlier phase vs later phase.</p>
+          <div class="compare-pickers grid-2">
+            <label class="field"><span>Before</span><select id="compareBefore"></select></label>
+            <label class="field"><span>After</span><select id="compareAfter"></select></label>
+          </div>
+          <div class="compare-stage" id="compareStage">
+            <p class="chart-empty">Add phase-start photos on at least two phases.</p>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Phase-start photos</h2>
+          <p class="hint">Add photos under More → Phases → selected phase.</p>
+          <div id="allPhotos" class="photo-timeline"></div>
+        </div>
+      </section>
 
       <!-- ANALYSIS -->
       <section id="panel-analysis" class="panel">
-        <div class="card">
+        <nav class="progress-nav" id="progressNav" aria-label="Progress sections">
+          <button type="button" class="progress-chip active" data-progress-jump="overview">Overview</button>
+          <button type="button" class="progress-chip" data-progress-jump="weight">Weight</button>
+          <button type="button" class="progress-chip" data-progress-jump="strength">Strength</button>
+          <button type="button" class="progress-chip" data-progress-jump="body">Body</button>
+          <button type="button" class="progress-chip" data-progress-jump="habits">Habits</button>
+          <button type="button" class="progress-chip" data-progress-jump="ai">AI</button>
+        </nav>
+
+        <div class="card progress-brief-card" id="progressBriefCard" data-progress-section="overview">
+          <p class="insight-kicker">Coach brief</p>
+          <div class="card-head">
+            <h2 id="progressBriefTitle">How you’re tracking</h2>
+            <span class="hint" id="progressBriefMeta"></span>
+          </div>
+          <p class="progress-brief-verdict" id="progressBriefVerdict">Log a few days to unlock the brief.</p>
+          <div class="progress-brief-chips" id="progressBriefChips"></div>
+          <ul class="progress-brief-points" id="progressBriefPoints"></ul>
+        </div>
+
+        <div class="card" id="progress-overview" data-progress-section="overview">
           <div class="card-head"><h2>Progress charts</h2><span class="hint" id="chartsMeta"></span></div>
           <p class="hint">Built only from what you logged — no estimated calories or body-fat guesses.</p>
           <div class="chart-kpis" id="chartKpis"></div>
         </div>
 
-        <div class="card">
+        <div class="card" data-progress-section="overview">
+          <div class="card-head">
+            <h2>Targets vs reality</h2>
+            <span class="hint" id="targetsMeta"></span>
+          </div>
+          <p class="hint">Plan targets from your diet · weight rate vs your cut goal · meal adherence (not weighed calories).</p>
+          <div class="chart-kpis" id="targetsKpis"></div>
+          <div id="targetsDetail" class="targets-detail"></div>
+        </div>
+
+        <div class="card" id="progress-weight" data-progress-section="weight">
           <h2>Weight trend</h2>
           <p class="hint">Dots = daily weigh-in · line = 7-day rolling average</p>
           <div class="chart-wrap" id="chartWeight"></div>
         </div>
 
-        <div class="card">
+        <div class="card" id="progress-strength" data-progress-section="strength">
+          <div class="card-head">
+            <h2>Strength analysis</h2>
+            <span class="hint" id="strengthMeta"></span>
+          </div>
+          <p class="hint">Every logged lift gets a chart below. Switch metric · expand a lift for the trend.</p>
+          <div class="chart-kpis" id="strengthKpis"></div>
+          <div class="day-switch strength-metric" id="strengthMetricSwitch">
+            <button type="button" class="chip active" data-strength-metric="volume">Volume</button>
+            <button type="button" class="chip" data-strength-metric="bestWeight">Best weight</button>
+            <button type="button" class="chip" data-strength-metric="e1rm">Est. 1RM</button>
+          </div>
+          <div class="strength-table-wrap">
+            <table class="strength-table" id="strengthTable">
+              <thead>
+                <tr>
+                  <th>Lift</th>
+                  <th>Last</th>
+                  <th>Best</th>
+                  <th>e1RM</th>
+                  <th>Δ vol</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody id="strengthTableBody"></tbody>
+            </table>
+          </div>
+          <div id="chartStrength"></div>
+        </div>
+
+        <div class="card" data-progress-section="overview">
+          <h2>Flags</h2>
+          <p class="hint">Simple stall / deload hints from your logs — not medical advice.</p>
+          <ul class="flag-list" id="flagList"></ul>
+        </div>
+
+        <div class="card" data-progress-section="weight">
           <h2>Phase weight change</h2>
           <p class="hint">Avg weight week 1 vs week 2 (or first→last weigh-in if sparse)</p>
           <div id="chartPhases"></div>
         </div>
 
-        <div class="card">
+        <div class="card" id="progress-body" data-progress-section="body">
+          <h2>Body fat %</h2>
+          <p class="hint">Only days you logged body fat from the scale</p>
+          <div class="chart-wrap" id="chartBodyFat"></div>
+        </div>
+
+        <div class="card" data-progress-section="body">
           <h2>Waist</h2>
           <p class="hint">Only days you logged waist (cm)</p>
           <div class="chart-wrap" id="chartWaist"></div>
         </div>
 
-        <div class="card">
+        <div class="card" id="progress-habits" data-progress-section="habits">
           <h2>Meal adherence</h2>
           <p class="hint">Checked meals ÷ planned meals for that day’s diet (train or rest)</p>
           <div class="chart-wrap" id="chartAdherence"></div>
           <div class="chart-legend" id="adherenceLegend"></div>
         </div>
 
-        <div class="card">
-          <h2>Train vs rest (last 42 days)</h2>
-          <p class="hint">Green = training logged · gray = rest logged · empty = no day log</p>
+        <div class="card" data-progress-section="habits">
+          <h2>Lift days vs other logs (last 42 days)</h2>
+          <p class="hint">Green = weights logged that day · gray = logged day with no lifts · empty = nothing saved</p>
           <div class="train-grid" id="chartTrainGrid"></div>
+          <p class="hint quiet" id="trainGridLegend"></p>
         </div>
 
-        <div class="card">
-          <h2>Strength (volume)</h2>
-          <p class="hint">Session volume = Σ (weight × reps) per exercise. Top lifts by how often you log them.</p>
-          <div id="chartStrength"></div>
-        </div>
-
-        <div class="card">
+        <div class="card" data-progress-section="habits">
           <h2>Weekly averages</h2>
           <p class="hint">Calendar weeks · steps, sleep, hunger, energy, coffee</p>
           <div id="chartWeekly"></div>
         </div>
 
-        <div class="card">
+        <div class="card" data-progress-section="body">
           <h2>Photo strip</h2>
-          <p class="hint">Oldest → newest. Compare the same pose over time.</p>
+          <p class="hint">Phase-start photos · oldest → newest</p>
           <div class="photo-strip" id="chartPhotoStrip"></div>
         </div>
 
-        <div class="card"><h2>AI pack</h2><button class="btn primary" id="exportAiBtn" type="button">Download AI analysis pack</button></div>
-        <div class="card">
-          <h2>Import analysis</h2>
-          <label class="field"><span>Title</span><input id="analysisTitle" /></label>
-          <label class="field"><span>Paste</span><textarea id="analysisPaste" rows="6"></textarea></label>
-          <div class="row-actions"><button class="btn primary" id="importAnalysisBtn" type="button">Save</button><label class="btn tiny file-btn">File<input type="file" id="analysisFile" accept=".json,text/plain" hidden /></label></div>
+        <div class="card insight-card" id="progressAiCard" data-progress-section="ai">
+          <p class="insight-kicker">Phase &amp; progress</p>
+          <div class="card-head">
+            <h2 id="progressAiTitle">AI analysis</h2>
+            <span class="hint" id="progressAiMeta"></span>
+          </div>
+          <p class="insight-empty" id="progressAiEmpty">No analysis yet. Download the pack, run a stronger AI on your computer, and paste the reply — or Analyze here. Auto-runs when a phase ends if a key is set.</p>
+          <pre class="insight-body" id="phaseInsightBody" hidden></pre>
+          <div class="insight-actions">
+            <button class="btn primary" id="aiAnalyzeBtn" type="button">Analyze</button>
+            <button class="btn ghost" id="exportAiBtn" type="button">Download pack</button>
+          </div>
+          <details class="insight-import" id="analysisImportFold">
+            <summary>Paste an external reply</summary>
+            <label class="field tight"><span>Title</span><input id="analysisTitle" placeholder="Optional" /></label>
+            <textarea id="analysisPaste" rows="5" placeholder="Paste the review here…"></textarea>
+            <div class="row-actions wrap">
+              <button class="btn primary" id="importAnalysisBtn" type="button">Save analysis</button>
+              <label class="btn tiny file-btn">From file<input type="file" id="analysisFile" accept=".json,text/plain" hidden /></label>
+            </div>
+          </details>
+          <div class="insight-notes">
+            <p class="insight-notes-label">Saved notes</p>
+            <ul class="analysis-list" id="analysisList"></ul>
+          </div>
         </div>
-        <div class="card"><h2>History</h2><ul class="analysis-list" id="analysisList"></ul></div>
       </section>
 
       <!-- DATA -->
       <section id="panel-data" class="panel">
+        <button type="button" class="more-back" data-tab="more">More</button>
         <div class="card">
           <h2>Backup</h2>
+          <p class="hint" id="backupStamp">No backup timestamp on this phone yet.</p>
           <div class="row-actions wrap">
             <button class="btn primary" id="exportFullBtn" type="button">Export full backup</button>
             <label class="btn tiny file-btn">Import backup<input type="file" id="importFullFile" accept=".json" hidden /></label>
           </div>
         </div>
-        <div class="card"><p class="hint" id="storageStatus"></p><button class="btn ghost" id="migrateBtn" type="button">Migrate old localStorage</button></div>
+        <div class="card">
+          <h2>Storage health</h2>
+          <p class="hint" id="storageStatus"></p>
+          <p class="hint" id="storageHealth"></p>
+          <div class="row-actions wrap">
+            <button class="btn ghost" id="refreshStorageBtn" type="button">Refresh size</button>
+            <button class="btn ghost" id="recompressBtn" type="button">Recompress older photos</button>
+            <button class="btn ghost" id="purgePhotosBtn" type="button">Delete all photos</button>
+          </div>
+          <p class="hint">Photos are compressed JPEG copies in the app (iPhone-friendly). Recompress shrinks older ones; delete removes them from the tracker only.</p>
+        </div>
+        <div class="card">
+          <h2>AI (on this device only)</h2>
+          <p class="hint">Save both keys if you want. <strong>Auto</strong> races them and keeps the first good reply (usually Gemini when it’s up).</p>
+          <label class="field"><span>Mode</span>
+            <select id="aiProvider">
+              <option value="auto">Auto · pick the faster working key</option>
+              <option value="gemini">Google Gemini only</option>
+              <option value="openrouter">OpenRouter only</option>
+            </select>
+          </label>
+          <div id="aiPanelGemini" class="ai-provider-panel">
+            <label class="field"><span>Gemini API key</span>
+              <input type="password" id="geminiApiKey" autocomplete="off" placeholder="AIza…" />
+            </label>
+            <p class="hint quiet"><a href="https://aistudio.google.com/api-keys" target="_blank" rel="noopener noreferrer">Get a free Gemini key</a></p>
+            <label class="field"><span>Gemini model</span>
+              <select id="geminiModel">
+                <option value="gemini-2.5-flash">Gemini 2.5 Flash · recommended</option>
+                <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash-Lite · fastest</option>
+                <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+                <option value="gemini-2.5-pro">Gemini 2.5 Pro · slower / stronger</option>
+              </select>
+            </label>
+          </div>
+          <div id="aiPanelOpenRouter" class="ai-provider-panel">
+            <label class="field"><span>OpenRouter API key</span>
+              <input type="password" id="openRouterKey" autocomplete="off" placeholder="sk-or-v1-…" />
+            </label>
+            <label class="field"><span>OpenRouter text model</span>
+              <select id="openRouterModel">
+                <option value="nvidia/nemotron-3-super-120b-a12b:free">Nemotron 3 Super free · best accuracy</option>
+                <option value="meta-llama/llama-3.3-70b-instruct:free">Llama 3.3 70B free · accurate</option>
+                <option value="google/gemma-3-27b-it:free">Gemma 3 27B free</option>
+                <option value="mistralai/mistral-small-3.1-24b-instruct:free">Mistral Small free</option>
+                <option value="liquid/lfm-2.5-2.6b:free">LFM 2.5 2.6B free · fastest</option>
+                <option value="nex-agi/nex-n2.5-mini:free">Nex N2.5 Mini free · fast</option>
+                <option value="openrouter/free">openrouter/free (random)</option>
+              </select>
+            </label>
+            <label class="field"><span>OpenRouter vision (scale OCR fallback)</span>
+              <select id="openRouterVisionModel">
+                <option value="inclusionai/ling-3.0-flash-vl:free">Ling 3.0 Flash VL free · fast</option>
+                <option value="nex-agi/nex-n2.5-mini:free">Nex N2.5 Mini free</option>
+                <option value="google/gemma-4-26b-a4b-it:free">Gemma 4 26B free</option>
+                <option value="google/gemma-4-31b-it:free">Gemma 4 31B free · slower</option>
+                <option value="openrouter/free">openrouter/free (random)</option>
+              </select>
+            </label>
+          </div>
+          <label class="check"><input type="checkbox" id="autoPhaseInsight" checked /> <span>Auto-analyze when a phase ends</span></label>
+          <div class="row-actions wrap" style="margin-top:10px">
+            <button type="button" class="btn primary" id="saveOpenRouterBtn">Save</button>
+            <button type="button" class="btn ghost" id="clearOpenRouterBtn">Clear keys</button>
+            <button type="button" class="btn ghost" id="testOpenRouterBtn">Test</button>
+          </div>
+          <p class="hint" id="openRouterStatus"></p>
+        </div>
+        <div class="card"><button class="btn ghost" id="migrateBtn" type="button">Migrate old localStorage</button></div>
+        <div class="card">
+          <h2>Access</h2>
+          <p class="hint">Site login is handled by Cloudflare Access (email). No in-app password.</p>
+        </div>
         <div class="card"><button class="btn tiny danger" id="clearBtn" type="button">Clear ALL</button></div>
       </section>
+      <!-- MORE -->
+      <section id="panel-more" class="panel">
+        <div class="card more-group">
+          <p class="insight-kicker">This week</p>
+          <div class="more-menu">
+            <button type="button" class="more-link" data-tab="prep" data-ico="prep"><span>Meal prep</span><em>Friday cook · recipes and videos</em></button>
+            <button type="button" class="more-link" data-tab="shopping" data-ico="shop"><span>Shopping list</span><em>What to buy this Friday</em></button>
+          </div>
+        </div>
+        <div class="card more-group">
+          <p class="insight-kicker">The plan</p>
+          <div class="more-menu">
+            <button type="button" class="more-link" data-tab="diet" data-ico="diet"><span>Diet</span><em>Meals and targets</em></button>
+            <button type="button" class="more-link" data-tab="swaps" data-ico="swaps"><span>Swaps</span><em>Allowed alternatives</em></button>
+            <button type="button" class="more-link" data-tab="training" data-ico="train"><span>Training</span><em>Schedule and sessions</em></button>
+          </div>
+        </div>
+        <div class="card more-group">
+          <p class="insight-kicker">Phase</p>
+          <div class="more-menu">
+            <button type="button" class="more-link" data-tab="phases" data-ico="phase"><span>Phases</span><em>Dates, photos, refresh pack</em></button>
+          </div>
+        </div>
+        <div class="card more-group">
+          <p class="insight-kicker">This phone</p>
+          <div class="more-menu">
+            <button type="button" class="more-link" data-tab="data" data-ico="data"><span>Backup &amp; AI key</span><em>Export · Gemini or OpenRouter</em></button>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <nav class="bottom-nav" aria-label="Main">
+      <button type="button" class="nav-item active" data-tab="today">
+        <span class="nav-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Today</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="rescue">
+        <span class="nav-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h7a5 5 0 1 1 0 10H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10 4 7 7l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Rescue</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="analysis">
+        <span class="nav-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 15v-3M12 15V9M16 15v-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span>Progress</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="photos">
+        <span class="nav-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="11" r="1.6" fill="currentColor"/><path d="m13 15 2.2-2.5a1 1 0 0 1 1.5 0L20 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Photos</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="more">
+        <span class="nav-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="17.5" cy="12" r="1.6" fill="currentColor"/></svg>
+        </span>
+        <span>More</span>
+      </button>
+    </nav>
   </div>
 
   <dialog id="photoDialog"><img id="photoDialogImg" alt="" /><form method="dialog" class="dialog-actions"><button value="close" class="btn ghost">Close</button><button type="button" class="btn tiny danger" id="deletePhotoBtn">Delete</button></form></dialog>
   <dialog id="analysisDialog"><h3 id="analysisDialogTitle"></h3><p class="hint" id="analysisDialogMeta"></p><pre id="analysisDialogBody"></pre><form method="dialog" class="dialog-actions"><button value="close" class="btn ghost">Close</button><button type="button" class="btn tiny" id="exportOneAnalysisBtn">Export</button></form></dialog>
+  <dialog id="mealRescueDialog" class="meal-rescue-dialog">
+    <header class="meal-rescue-dialog-head">
+      <p class="insight-kicker">Rescue this meal</p>
+      <h3 id="mealRescueTitle">Meal</h3>
+      <p class="hint" id="mealRescueMeta"></p>
+    </header>
+    <div class="meal-rescue-plate">
+      <p class="meal-rescue-plate-label">On the plate</p>
+      <p class="meal-rescue-foods" id="mealRescueFoods"></p>
+      <p class="meal-rescue-day" id="mealRescueDay"></p>
+    </div>
+    <div class="meal-rescue-chips" id="mealRescueChips"></div>
+    <label class="field"><span>What happened?</span>
+      <textarea id="mealRescueInput" rows="3" placeholder="One line is enough — or tap a chip above."></textarea>
+    </label>
+    <pre class="meal-rescue-reply" id="mealRescueReply" hidden></pre>
+    <p class="hint quiet" id="mealRescueStatus"></p>
+    <div class="dialog-actions meal-rescue-actions">
+      <button type="button" class="btn ghost" id="mealRescueCloseBtn">Close</button>
+      <button type="button" class="btn ghost" id="mealRescueOpenFull">Full Rescue</button>
+      <button type="button" class="btn primary" id="mealRescueAskBtn">Ask AI</button>
+    </div>
+  </dialog>
 
-  <script src="db.js"></script>
-  <script src="app.js"></script>
+  <script src="config.js"></script>
+  <script src="db.js?v=126"></script>
+  <script src="templates/packs.js?v=126"></script>
+  <script src="app.js?v=126"></script>
 </body>
 </html>

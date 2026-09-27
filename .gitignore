@@ -5,3 +5,8 @@ day-template-*.json
 ai-pack-*.json
 exports/
 backups/
+
+# Cloudflare deploy secrets
+.env.local
+.env
+*.local

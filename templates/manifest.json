@@ -1,0 +1,22 @@
+{
+  "type": "cut-tracker-template-library",
+  "version": 2,
+  "updated": "2026-09-25",
+  "phase": [
+    {
+      "id": "cut-12week-julia",
+      "name": "Julia — yogurt bowl, chicken last, 2× gym",
+      "file": "phase-cut-12week-julia.json"
+    },
+    {
+      "id": "cut-weeks-3-4",
+      "name": "Weeks 3–4 cut — halloumi dinner, lighter pre-gym",
+      "file": "phase-cut-weeks-3-4.json"
+    },
+    {
+      "id": "cut-10week",
+      "name": "10-week cut — diet + training + shopping",
+      "file": "phase-cut-10week.json"
+    }
+  ]
+}

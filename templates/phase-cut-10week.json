@@ -1,0 +1,871 @@
+{
+  "type": "cut-tracker-phase-template",
+  "version": 1,
+  "goalLossPctPerWeek": 0.75,
+  "trainingDaysPerWeek": 4,
+  "notes": "10-week cut, Egyptian products. Juhayna skimmed only. Nestlé corn flakes. Basmati rice. Oil = spray only, 6 spritzes/day max. Nescafé Classic ×2 with 80 ml Juhayna skim each. Breakfast: flakes + 100 ml milk + 3 whites + tomato/cucumber. Tuna + basmati. Last meal 2 eggs + 2 whites + cottage 150 g. Week 6 ~2600 kcal, 2 sets.",
+  "diet": {
+    "type": "cut-tracker-diet-template",
+    "version": 3,
+    "name": "10-week cut",
+    "notes": "Nescafé Classic ×2 · Juhayna skimmed 80 ml each · 10 g sugar in one cup only (not 3-in-1). Spray oil: 6 spritzes/day max (~2 seconds) — never pour. Calories include both.",
+    "training": {
+      "label": "Training day",
+      "targets": {
+        "kcal": 1910,
+        "protein": 177,
+        "carbs": 199,
+        "fat": 44
+      },
+      "meals": [
+        {
+          "id": "breakfast",
+          "name": "Breakfast",
+          "when": "Morning",
+          "items": [
+            "Nestlé corn flakes 40 g",
+            "Juhayna skimmed milk 100 ml",
+            "egg whites 3",
+            "tomato 150 g",
+            "cucumber 150 g"
+          ],
+          "kcal": 286,
+          "protein": 19,
+          "carbs": 49,
+          "fat": 2,
+          "swaps": ["swap_whites"]
+        },
+        {
+          "id": "lunch",
+          "name": "Lunch",
+          "when": "Midday",
+          "items": [
+            "chicken breast 185 g cooked",
+            "basmati rice 140 g cooked",
+            "vegetables 180 g cooked"
+          ],
+          "kcal": 537,
+          "protein": 65,
+          "carbs": 49,
+          "fat": 8,
+          "swaps": ["swap_protein", "swap_starch", "swap_fat"],
+          "recipes": [
+            {
+              "id": "ke-lunch-sheet",
+              "name": "Friday sheet-pan chicken and veg, rice on the side",
+              "prepMinutes": 50,
+              "video": "https://youtu.be/bCDHiec7JEY",
+              "makes": "4 training lunches",
+              "steps": [
+                "Video uses extra oil and potatoes — skip those. Spray oil only, counted in the 6 spritzes.",
+                "Bake chicken and mixed vegetables on one tray (light spray). Cook basmati in water and salt — spray the pot if it sticks, do not pour oil.",
+                "Weigh COOKED into boxes: chicken 185 g, basmati 140 g, vegetables 180 g.",
+                "Reheat Sun–Thu. Do not add sauces that are not on the pack."
+              ]
+            },
+            {
+              "id": "ke-lunch-bake-rice",
+              "name": "High-heat baked chicken + pot rice",
+              "prepMinutes": 40,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "4 training lunches",
+              "steps": [
+                "Bake boneless breasts at high heat until 165°F / 74°C. Rest 5 minutes.",
+                "Cook basmati separately (lid on). Weigh 140 g cooked per box.",
+                "Roast or steam vegetables; weigh 180 g cooked. Spray only — almonds still cover most fat.",
+                "Same macros as the lunch line — only the cook method changes."
+              ]
+            },
+            {
+              "id": "ke-lunch-seasoned",
+              "name": "Paprika-garlic baked chicken, same plate",
+              "prepMinutes": 35,
+              "video": "https://youtu.be/1TlVgW-pM5g",
+              "makes": "4 training lunches",
+              "steps": [
+                "Season with salt, paprika, garlic powder, thyme — no extra butter or creamy sauce.",
+                "Pull chicken at ~160°F / 71°C and rest to 165°F / 74°C.",
+                "Box: chicken 185 g cooked, basmati 140 g, vegetables 180 g."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "snack1",
+          "name": "Snack",
+          "when": "Afternoon",
+          "items": [
+            "apple 1 medium",
+            "almonds 28 nuts"
+          ],
+          "kcal": 279,
+          "protein": 8,
+          "carbs": 29,
+          "fat": 17,
+          "swaps": ["swap_fruit"]
+        },
+        {
+          "id": "preGym",
+          "name": "Pre-gym",
+          "when": "Before training",
+          "items": [
+            "tuna in water 150 g drained",
+            "basmati rice 150 g cooked",
+            "vegetables 130 g cooked"
+          ],
+          "kcal": 402,
+          "protein": 45,
+          "carbs": 48,
+          "fat": 2,
+          "swaps": ["swap_protein", "swap_starch", "swap_fat"],
+          "recipes": [
+            {
+              "id": "ke-pregym-tuna-rice",
+              "name": "Tuna with basmati",
+              "prepMinutes": 12,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "1 plate",
+              "steps": [
+                "Basmati cooked in water and salt. One spritz on the pot if it sticks — do not pour oil or samna.",
+                "Weigh 150 g cooked basmati. Drain tuna in water 150 g (not tuna in oil). Lemon, pepper, chilli. No mayo unless you log the fat swap.",
+                "Vegetables 130 g cooked on the side."
+              ]
+            },
+            {
+              "id": "ke-pregym-rice-batch",
+              "name": "Friday pot basmati for tuna plates",
+              "prepMinutes": 25,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "7 tuna-rice portions",
+              "steps": [
+                "Cook a pot of basmati with water only. Light spray if needed. Weigh 150 g cooked into 7 boxes (4 pre-gym + 3 rest lunches).",
+                "Tuna is opened fresh on the day. Do not mix tuna into the rice for the fridge."
+              ]
+            },
+            {
+              "id": "ke-pregym-reheat",
+              "name": "Reheat rice + veg, add tuna",
+              "prepMinutes": 8,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "1 plate",
+              "steps": [
+                "Splash of water on the rice so it does not dry. Warm veg.",
+                "Stir in drained tuna 150 g off the heat."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "afterGym",
+          "name": "After gym",
+          "when": "After training",
+          "items": [
+            "whole eggs 2",
+            "egg whites 2",
+            "cottage cheese 150 g"
+          ],
+          "kcal": 300,
+          "protein": 37,
+          "carbs": 6,
+          "fat": 13,
+          "swaps": [],
+          "recipes": [
+            {
+              "id": "ke-eggs-cottage-scramble",
+              "name": "Cottage-cheese scramble (2 eggs + 2 whites)",
+              "prepMinutes": 12,
+              "video": "https://youtu.be/GCfuTDmF6vo",
+              "makes": "1 serving",
+              "steps": [
+                "Video is a smaller batch. Use 2 whole eggs + 2 whites and cottage cheese 150 g.",
+                "Low heat, nonstick, 2 spritzes of spray oil. No butter, poured oil, or extra cheese.",
+                "Same plate macros — cottage can be folded in or served beside the eggs."
+              ]
+            },
+            {
+              "id": "ke-eggs-soft-scramble",
+              "name": "Soft scramble, cottage on the side",
+              "prepMinutes": 10,
+              "video": "https://youtu.be/eLkgILAkqVI",
+              "makes": "1 serving",
+              "steps": [
+                "Use the on/off heat method. Skip butter knobs and crème fraîche — fat is already in the 2 yolks.",
+                "Cook 2 eggs + 2 whites. Serve cottage cheese 150 g cold on the side."
+              ]
+            },
+            {
+              "id": "ke-eggs-omelette",
+              "name": "Plain omelette, cottage bowl",
+              "prepMinutes": 10,
+              "video": "https://youtu.be/GCfuTDmF6vo",
+              "makes": "1 serving",
+              "steps": [
+                "Cook eggs as a thin omelette, no fillings that are not on the pack.",
+                "Cottage 150 g in a bowl. Salt and pepper only."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rest": {
+      "label": "Rest day",
+      "targets": {
+        "kcal": 1745,
+        "protein": 174,
+        "carbs": 162,
+        "fat": 43
+      },
+      "meals": [
+        {
+          "id": "breakfast",
+          "name": "Breakfast",
+          "when": "Morning",
+          "items": [
+            "Nestlé corn flakes 40 g",
+            "Juhayna skimmed milk 100 ml",
+            "egg whites 3",
+            "tomato 150 g",
+            "cucumber 150 g"
+          ],
+          "kcal": 286,
+          "protein": 19,
+          "carbs": 49,
+          "fat": 2,
+          "swaps": ["swap_whites"]
+        },
+        {
+          "id": "lunch",
+          "name": "Lunch",
+          "when": "Midday — carbs here so you last at work",
+          "items": [
+            "tuna in water 150 g drained",
+            "basmati rice 150 g cooked",
+            "vegetables 130 g cooked"
+          ],
+          "kcal": 402,
+          "protein": 45,
+          "carbs": 48,
+          "fat": 2,
+          "swaps": ["swap_protein", "swap_starch", "swap_fat"],
+          "recipes": [
+            {
+              "id": "ke-rest-lunch-tuna-rice",
+              "name": "Work box: tuna + basmati + veg",
+              "prepMinutes": 10,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "3 rest lunches",
+              "steps": [
+                "Same plate as training pre-gym, eaten at lunch on rest days so the rice sits through the afternoon.",
+                "Rice 150 g cooked basmati (water + spray only). Tuna 150 g drained added in the morning. Veg 130 g.",
+                "No mayo. Lemon and pepper only. Not tuna in oil."
+              ]
+            },
+            {
+              "id": "ke-rest-lunch-reheat",
+              "name": "Reheat rice, add tuna at work",
+              "prepMinutes": 8,
+              "video": "https://youtu.be/JURWfebevjc",
+              "makes": "1 plate",
+              "steps": [
+                "Warm rice and veg with a splash of water. Drain tuna 150 g onto the box."
+              ]
+            },
+            {
+              "id": "ke-pregym-rice-batch",
+              "name": "Friday pot basmati for tuna plates",
+              "prepMinutes": 25,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "7 tuna-rice portions",
+              "steps": [
+                "Same Friday rice as training pre-gym boxes."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "snack1",
+          "name": "Snack",
+          "when": "Afternoon",
+          "items": [
+            "apple 1 medium",
+            "almonds 28 nuts"
+          ],
+          "kcal": 279,
+          "protein": 8,
+          "carbs": 29,
+          "fat": 17,
+          "swaps": ["swap_fruit"]
+        },
+        {
+          "id": "dinner",
+          "name": "Dinner",
+          "when": "Evening — lighter, starch already eaten",
+          "items": [
+            "chicken breast 185 g cooked",
+            "vegetables 180 g cooked"
+          ],
+          "kcal": 368,
+          "protein": 61,
+          "carbs": 11,
+          "fat": 7,
+          "swaps": ["swap_protein"],
+          "recipes": [
+            {
+              "id": "ke-rest-dinner-sheet",
+              "name": "Sheet-pan chicken and veg (no potato)",
+              "prepMinutes": 40,
+              "video": "https://youtu.be/bCDHiec7JEY",
+              "makes": "3 rest dinners",
+              "steps": [
+                "Rest dinner has no starch — that was lunch. Skip potato and rice.",
+                "Weigh COOKED: chicken 185 g, vegetables 180 g."
+              ]
+            },
+            {
+              "id": "ke-rest-dinner-bake",
+              "name": "High-heat baked chicken + roasted veg",
+              "prepMinutes": 35,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "3 rest dinners",
+              "steps": [
+                "Bake chicken; roast vegetables in a single layer.",
+                "Plate: 185 g chicken, 180 g veg. No potato tonight."
+              ]
+            },
+            {
+              "id": "ke-rest-dinner-reheat",
+              "name": "Reheat Friday chicken-veg boxes",
+              "prepMinutes": 10,
+              "video": "https://youtu.be/JURWfebevjc",
+              "makes": "1 plate",
+              "steps": [
+                "Warm through. Lemon or pepper only."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "supper",
+          "name": "Evening",
+          "when": "Late",
+          "items": [
+            "whole eggs 2",
+            "egg whites 2",
+            "cottage cheese 150 g"
+          ],
+          "kcal": 300,
+          "protein": 37,
+          "carbs": 6,
+          "fat": 13,
+          "swaps": [],
+          "recipes": [
+            {
+              "id": "ke-eggs-cottage-scramble",
+              "name": "Cottage-cheese scramble (2 eggs + 2 whites)",
+              "prepMinutes": 12,
+              "video": "https://youtu.be/GCfuTDmF6vo",
+              "makes": "1 serving",
+              "steps": [
+                "Video is a smaller batch. Use 2 whole eggs + 2 whites and cottage cheese 150 g.",
+                "Low heat, nonstick, 2 spritzes of spray oil. No butter, poured oil, or extra cheese.",
+                "Same plate macros — cottage can be folded in or served beside the eggs."
+              ]
+            },
+            {
+              "id": "ke-eggs-soft-scramble",
+              "name": "Soft scramble, cottage on the side",
+              "prepMinutes": 10,
+              "video": "https://youtu.be/eLkgILAkqVI",
+              "makes": "1 serving",
+              "steps": [
+                "Use the on/off heat method. Skip butter knobs and crème fraîche — fat is already in the 2 yolks.",
+                "Cook 2 eggs + 2 whites. Serve cottage cheese 150 g cold on the side."
+              ]
+            },
+            {
+              "id": "ke-eggs-omelette",
+              "name": "Plain omelette, cottage bowl",
+              "prepMinutes": 10,
+              "video": "https://youtu.be/GCfuTDmF6vo",
+              "makes": "1 serving",
+              "steps": [
+                "Cook eggs as a thin omelette, no fillings that are not on the pack.",
+                "Cottage 150 g in a bowl. Salt and pepper only."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "foodSwaps": [
+      {
+        "id": "swap_starch",
+        "label": "Starch",
+        "options": [
+          "basmati rice 150 g cooked",
+          "potato 180 g cooked",
+          "fino 40 g (half a small bakery fino)"
+        ]
+      },
+      {
+        "id": "swap_protein",
+        "label": "Protein",
+        "options": [
+          "chicken breast 185 g cooked",
+          "tuna in water 150 g drained",
+          "lean steak 170 g cooked"
+        ]
+      },
+      {
+        "id": "swap_fat",
+        "label": "Added fat",
+        "options": [
+          "almonds 8 nuts",
+          "light mayo 15 g"
+        ]
+      },
+      {
+        "id": "swap_fruit",
+        "label": "Fruit",
+        "options": [
+          "apple 1 medium",
+          "orange 1 large",
+          "banana 1 small",
+          "kiwi 2",
+          "strawberries 200 g",
+          "pineapple 150 g"
+        ]
+      },
+      {
+        "id": "swap_whites",
+        "label": "Egg whites",
+        "options": [
+          "egg whites 2",
+          "carton egg whites 70 ml"
+        ]
+      }
+    ],
+    "prep": {
+      "cookDays": [
+        "fri"
+      ],
+      "eatDays": [
+        "sun",
+        "mon",
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "notes": "Friday: bake chicken for 4 training lunches + 3 rest dinners (spray oil only, stay inside 6 spritzes that day). Cook basmati in water — 140 g cooked × 4 lunches and 150 g cooked × 7 tuna plates. Roast veg. Tuna opened fresh (water cans). Last meal cooked fresh with 2 pan spritzes. Breakfast tomato/cucumber is raw."
+    }
+  },
+  "training": {
+    "type": "cut-tracker-training-template",
+    "version": 2,
+    "name": "4-day upper/lower",
+    "notes": "Sunday Upper A · Monday Lower A · Wednesday Upper B · Friday Lower B. Walk 8–10k steps daily. Stop every set with 1–2 reps left in the tank. Weeks 1–5: hold the load and add reps to the top of the range. Weeks 6–10: hold the top of the range and add load only once every set hits it. Week 6 is the light week — same weights, 2 sets per exercise. Every lift has a YouTube demo. Move a session on Today if the week slips.",
+    "restBetweenSetsSec": 120,
+    "restBetweenExercisesSec": 90,
+    "sessions": [
+      {
+        "id": "session_upper_a",
+        "name": "Upper A Strength",
+        "recommendedWeekday": 0,
+        "proposedTime": "19:30–20:40",
+        "exercises": [
+          {
+            "id": "ex_bench",
+            "name": "Barbell bench press",
+            "youtubeUrl": "https://youtu.be/gRVjAtPip0Y",
+            "targetSets": 4,
+            "targetReps": "5-7",
+            "restBetweenSetsSec": 180,
+            "restAfterExerciseSec": 150,
+            "notes": "Leave 1-2 reps in reserve. Keep the load, never chase failure on a cut."
+          },
+          {
+            "id": "ex_csrow",
+            "name": "Chest supported row",
+            "youtubeUrl": "https://youtu.be/9p4-Xa_8MCw",
+            "targetSets": 4,
+            "targetReps": "8-10",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 120,
+            "notes": ""
+          },
+          {
+            "id": "ex_pulldown",
+            "name": "Lat pulldown",
+            "youtubeUrl": "https://youtu.be/gFHQ5S6rPwo",
+            "targetSets": 3,
+            "targetReps": "8-12",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 120,
+            "notes": ""
+          },
+          {
+            "id": "ex_shoulderpress",
+            "name": "Shoulder press machine",
+            "youtubeUrl": "https://youtu.be/3R14MnZbcpw",
+            "targetSets": 3,
+            "targetReps": "8-10",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 90,
+            "notes": ""
+          },
+          {
+            "id": "ex_pushdown",
+            "name": "Cable triceps pushdown",
+            "youtubeUrl": "https://youtu.be/_w-HpW70nSQ",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_inclinecurl",
+            "name": "Incline dumbbell curl",
+            "youtubeUrl": "https://youtu.be/soxrZlIl35U",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "id": "session_lower_a",
+        "name": "Lower A Strength",
+        "recommendedWeekday": 1,
+        "proposedTime": "19:30–20:40",
+        "exercises": [
+          {
+            "id": "ex_squat",
+            "name": "Barbell back squat",
+            "youtubeUrl": "https://youtu.be/gcNh17Ckjgg",
+            "targetSets": 4,
+            "targetReps": "5-7",
+            "restBetweenSetsSec": 180,
+            "restAfterExerciseSec": 150,
+            "notes": "Depth over load. Stop the set when bar speed drops."
+          },
+          {
+            "id": "ex_rdl",
+            "name": "Romanian deadlift",
+            "youtubeUrl": "https://youtu.be/5zmlnbWb-g4",
+            "targetSets": 3,
+            "targetReps": "6-8",
+            "restBetweenSetsSec": 150,
+            "restAfterExerciseSec": 120,
+            "notes": ""
+          },
+          {
+            "id": "ex_legpress",
+            "name": "Leg press",
+            "youtubeUrl": "https://youtu.be/JcRiV6ubO9U",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 90,
+            "notes": ""
+          },
+          {
+            "id": "ex_legcurl_a",
+            "name": "Seated leg curl",
+            "youtubeUrl": "https://youtu.be/t9sTSr-JYSs",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 90,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_calf_standing",
+            "name": "Standing calf raise",
+            "youtubeUrl": "https://youtu.be/3UWi44yN-wM",
+            "targetSets": 3,
+            "targetReps": "8-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_abcrunch",
+            "name": "Ab crunch machine",
+            "youtubeUrl": "https://youtu.be/_O1xunCfYEM",
+            "targetSets": 3,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 0,
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "id": "session_upper_b",
+        "name": "Upper B Hypertrophy",
+        "recommendedWeekday": 3,
+        "proposedTime": "18:20–19:30",
+        "exercises": [
+          {
+            "id": "ex_inclinedb",
+            "name": "Incline dumbbell press",
+            "youtubeUrl": "https://youtu.be/OC7Qs_SAO2E",
+            "targetSets": 4,
+            "targetReps": "8-10",
+            "restBetweenSetsSec": 150,
+            "restAfterExerciseSec": 120,
+            "notes": ""
+          },
+          {
+            "id": "ex_pullup",
+            "name": "Pull up or assisted pull up",
+            "youtubeUrl": "https://youtu.be/eGo4IYlbE5g",
+            "targetSets": 4,
+            "targetReps": "6-10",
+            "restBetweenSetsSec": 150,
+            "restAfterExerciseSec": 120,
+            "notes": "Use the assist machine or a band to stay in the rep range. Assisted-machine demo: https://youtu.be/ww2ApH2BYhg"
+          },
+          {
+            "id": "ex_seatedrow",
+            "name": "Seated row machine",
+            "youtubeUrl": "https://youtu.be/TeFo51Q_Nsc",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 90,
+            "notes": ""
+          },
+          {
+            "id": "ex_chestpress",
+            "name": "Chest press machine",
+            "youtubeUrl": "https://youtu.be/sqNwDkUU_Ps",
+            "targetSets": 2,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 90,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_lateral",
+            "name": "Dumbbell lateral raise",
+            "youtubeUrl": "https://youtu.be/pg3hz43P09w",
+            "targetSets": 3,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_ohtriceps",
+            "name": "Overhead cable triceps extension",
+            "youtubeUrl": "https://youtu.be/jhDJNF_WlTc",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_cablecurl",
+            "name": "Cable curl",
+            "youtubeUrl": "https://youtu.be/nW7w5vG6IIc",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 0,
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "id": "session_lower_b",
+        "name": "Lower B Hypertrophy",
+        "recommendedWeekday": 5,
+        "proposedTime": "09:30–10:45",
+        "exercises": [
+          {
+            "id": "ex_hacksquat",
+            "name": "Hack squat or leg press",
+            "youtubeUrl": "https://youtu.be/JcRiV6ubO9U",
+            "targetSets": 4,
+            "targetReps": "8-10",
+            "restBetweenSetsSec": 150,
+            "restAfterExerciseSec": 120,
+            "notes": "Prefer hack squat if available; otherwise leg press."
+          },
+          {
+            "id": "ex_hipthrust",
+            "name": "Hip thrust",
+            "youtubeUrl": "https://youtu.be/CNgysDAPZ8Q",
+            "targetSets": 3,
+            "targetReps": "8-12",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 90,
+            "notes": ""
+          },
+          {
+            "id": "ex_legext",
+            "name": "Leg extension",
+            "youtubeUrl": "https://youtu.be/4ZDm5EbiFI8",
+            "targetSets": 3,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_legcurl_b",
+            "name": "Seated leg curl",
+            "youtubeUrl": "https://youtu.be/t9sTSr-JYSs",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 90,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_calf_seated",
+            "name": "Seated calf raise",
+            "youtubeUrl": "https://youtu.be/3ZRe_QpvRPg",
+            "targetSets": 3,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_backext",
+            "name": "Back extension machine",
+            "youtubeUrl": "https://youtu.be/ggapqqmXALk",
+            "targetSets": 2,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_treadmill",
+            "name": "Optional incline treadmill walk",
+            "youtubeUrl": "https://youtu.be/RO1IRfIKlWM",
+            "targetSets": 1,
+            "targetReps": "10-12 min easy",
+            "restBetweenSetsSec": 0,
+            "restAfterExerciseSec": 0,
+            "notes": ""
+          }
+        ]
+      }
+    ]
+  },
+  "shoppingList": {
+    "items": [
+      {
+        "id": "shop_1",
+        "name": "chicken breast (raw)",
+        "amount": "1.8 kg",
+        "category": "Meat/Fish"
+      },
+      {
+        "id": "shop_2",
+        "name": "eggs",
+        "amount": "14 whole + carton whites 1.2 L (35 whites: 3 at breakfast + 2 at last meal)",
+        "category": "Eggs"
+      },
+      {
+        "id": "shop_3",
+        "name": "cottage cheese 2% (President / similar light)",
+        "amount": "1.05 kg",
+        "category": "Dairy & protein"
+      },
+      {
+        "id": "shop_4",
+        "name": "Juhayna skimmed milk (not full cream, not half cream)",
+        "amount": "2 litres",
+        "category": "Dairy & protein"
+      },
+      {
+        "id": "shop_5",
+        "name": "Nestlé Country Corn Flakes",
+        "amount": "280 g",
+        "category": "Carbs & grains"
+      },
+      {
+        "id": "shop_6",
+        "name": "basmati rice (dry)",
+        "amount": "600 g",
+        "category": "Carbs & grains"
+      },
+      {
+        "id": "shop_7",
+        "name": "potatoes (optional starch swap)",
+        "amount": "0.5 kg",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_8",
+        "name": "vegetables (fresh or frozen mix)",
+        "amount": "2.2 kg",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_9",
+        "name": "apples (or equivalent fruit)",
+        "amount": "7",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_tomato",
+        "name": "tomatoes",
+        "amount": "1.1 kg",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_cucumber",
+        "name": "cucumbers",
+        "amount": "1.1 kg",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_10",
+        "name": "almonds",
+        "amount": "200 g",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_tuna",
+        "name": "tuna in water (Americana / California Garden / John West — not oil)",
+        "amount": "8 cans 160–185 g (drain, weigh 150 g each meal)",
+        "category": "Meat/Fish"
+      },
+      {
+        "id": "shop_nescafe",
+        "name": "Nescafé Classic (jar)",
+        "amount": "1 small jar",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_13",
+        "name": "sugar",
+        "amount": "70 g (10 g in one Nescafé only)",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_spray",
+        "name": "oil spray (PAM / Cote / supermarket spritz)",
+        "amount": "1 can",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_14",
+        "name": "creatine monohydrate",
+        "amount": "1 tub (3-5 g daily)",
+        "category": "Pantry"
+      }
+    ]
+  }
+}
