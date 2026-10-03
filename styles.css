@@ -1514,6 +1514,26 @@ textarea {
   font-weight: 600;
 }
 
+.offline-banner {
+  margin: 0;
+  padding: 8px 14px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: #5c3b14;
+  background: linear-gradient(180deg, #fff4df 0%, #f7ebcf 100%);
+  border-bottom: 1px solid rgba(154, 52, 18, 0.18);
+}
+
+.offline-banner[hidden] {
+  display: none !important;
+}
+
+body.is-offline .header {
+  padding-top: 2px;
+}
+
 .action-progress {
   position: fixed;
   inset: 0;
