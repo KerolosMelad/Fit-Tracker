@@ -11,8 +11,43 @@ function applyBrand() {
 
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
-  // Quiet registration — no update banner (it was sticking on iOS)
-  navigator.serviceWorker.register("./sw.js").catch(() => {});
+  const start = () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  };
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start, { once: true });
+}
+
+function isAppOnline() {
+  return navigator.onLine !== false;
+}
+
+function syncOnlineUi() {
+  const offline = !isAppOnline();
+  document.body.classList.toggle("is-offline", offline);
+  const banner = $("offlineBanner");
+  if (banner) banner.hidden = !offline;
+}
+
+function wireOnlineStatus() {
+  syncOnlineUi();
+  window.addEventListener("online", () => {
+    syncOnlineUi();
+    showToast("Back online");
+  });
+  window.addEventListener("offline", () => {
+    syncOnlineUi();
+    showToast("Offline — logging still works");
+  });
+  // Ask the OS to keep IndexedDB (days/photos) when storage is tight.
+  try {
+    navigator.storage?.persist?.();
+  } catch (_) {}
+}
+
+function requireOnline(feature = "This") {
+  if (isAppOnline()) return;
+  throw new Error(`${feature} needs a connection. Your logs still work offline.`);
 }
 
 const undoStack = [];
@@ -859,6 +894,7 @@ async function fetchAiChat({
   viaProxy = false,
   provider = "openrouter",
 }) {
+  requireOnline("AI");
   const ms = timeoutMs ?? 60000;
   const ownCtrl = signal ? null : new AbortController();
   const usedSignal = signal || ownCtrl.signal;
@@ -958,6 +994,7 @@ function geminiPartsFromContent(content) {
 }
 
 async function geminiGenerateContent({ system, user, temperature = 0.2, model, imageDataUrl, timeoutMs, signal } = {}) {
+  requireOnline("AI");
   const settings = aiSettings();
   const key = settings.geminiKey;
   if (!key) throw new Error("Add your Gemini key in More → Backup & AI key");
@@ -7651,6 +7688,7 @@ async function initApp() {
 }
 
 registerServiceWorker();
+wireOnlineStatus();
 applyBrand();
 initApp().catch((e) => {
   console.error(e);

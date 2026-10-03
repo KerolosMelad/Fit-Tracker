@@ -1,9 +1,12 @@
 {
   "name": "KeJu Fit Tracker",
   "short_name": "KeJu",
-  "description": "Personal cut, diet, and training tracker",
+  "description": "Personal cut, diet, and training tracker — works offline on this phone",
+  "id": "./",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#eef2f0",
   "theme_color": "#0f6b5c",
   "icons": [
