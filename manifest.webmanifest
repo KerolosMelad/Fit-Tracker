@@ -2,7 +2,7 @@
   "name": "KeJu Fit Tracker",
   "short_name": "KeJu",
   "description": "Personal cut, diet, and training tracker",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#eef2f0",
   "theme_color": "#0f6b5c",

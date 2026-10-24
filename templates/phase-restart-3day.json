@@ -583,12 +583,12 @@
           {
             "id": "ex_reardelt",
             "name": "Reverse pec deck (rear delt fly)",
-            "youtubeUrl": "",
+            "youtubeUrl": "https://youtu.be/vpPjY_2Kq1A",
             "targetSets": 3,
             "targetReps": "12-15",
             "restBetweenSetsSec": 60,
             "restAfterExerciseSec": 60,
-            "notes": "Light. Lead with the elbows, squeeze the rear shoulder. No youtube link yet; add one in the plan editor."
+            "notes": "Light. Lead with the elbows, squeeze the rear shoulder."
           },
           {
             "id": "ex_ohtriceps",
