@@ -1244,7 +1244,7 @@ const FALLBACK_PHASE_LIBRARY = {
   phase: [
     {
       id: "restart-3day",
-      name: "Restart — 3 gym days, one balanced diet, planned cardio",
+      name: "Stage 1 quick cut — 20 weeks, 3 gym days, Kayy oats + Dina cottage cheese",
       file: "phase-restart-3day.json",
     },
     {
