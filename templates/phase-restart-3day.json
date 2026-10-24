@@ -3,7 +3,7 @@
   "version": 1,
   "goalLossPctPerWeek": 0.75,
   "trainingDaysPerWeek": 3,
-  "notes": "STAGE 1 OF 4: QUICK CUT. Mon 26 Oct 2026 to Sun 17 Jan 2027, 12 weeks: 10 cutting weeks plus reset weeks 6 and 12. Start from the true baseline: 90.8 kg and 28.5% body fat (11 Sep). Expect 0.7–1.0 kg a week in cutting weeks, about 8 kg total, ending near 82–83 kg and 22–23% body fat. Roadmap. Stage 2, 18 Jan to about 11 Apr, 12 weeks: clean bulk with a small surplus and heavier lifting. Stage 3, 12 Apr to mid-July: second cut. Stage 4: hold or finish the cut through the end of summer. Honest expectation: a bulk between two cuts means about 14–15% body fat in mid-July and 11–12% by the end of summer. If a shredded mid-July matters more than the bulk, skip stage 2. Stage 1 is the same either way. Rules. 1) Three gym days: Sat, Mon, Wed. Two is a pass. Never make up a session. Keep the lifts heavy. 2) One plan, same food every day. Everything is weighed and counted, coffee included. Tick every meal every day, including bad days. Logging stopped after 5 Oct, and that was the first sign. 3) Cardio is planned: 20 minutes of easy incline walking after each lift. Nothing else counts. Daily steps stay around 2,000. 4) Sleep 7 hours or more. 5) One planned flex meal a week, Friday dinner only. 6) Craving at night: water or Coke Zero, then wait 20 minutes. If still hungry, eat the next planned meal early; do not add extra food. 7) Weigh every morning; judge the 7-day average, not the day. Weeks 1 and 2 can read 1.5 kg or more lower from water. After that aim for 0.7–1.0 kg a week. 8) If the 7-day average falls less than 0.5 kg a week for 2 cutting weeks in a row after week 3, add one 30-minute easy cardio visit on Thursday. Food does not go lower. 9) If it falls more than 1.2 kg a week for 2 weeks in a row, add 50 g cooked rice to lunch. 10) Week 5 is where the last cut crashed. If energy is 2 out of 5 or lower, or hunger is 4 out of 5 or higher, on 3 days in one week, take the reset week early instead of skipping sessions. 11) Stage 1 ends on 17 Jan whatever the scale says. Do not extend it.",
+  "notes": "STAGE 1 OF 4: QUICK CUT. Mon 26 Oct 2026 to Sun 17 Jan 2027, 12 weeks: 10 cutting weeks plus reset weeks 6 and 12. Start from the true baseline: 90.8 kg and 28.5% body fat (11 Sep). Expect 0.7–1.0 kg a week in cutting weeks, about 8 kg total, ending near 82–83 kg and 22–23% body fat. Roadmap. Stage 2, 18 Jan to about 11 Apr, 12 weeks: clean bulk with a small surplus and heavier lifting. Stage 3, 12 Apr to mid-July: second cut. Stage 4: hold or finish the cut through the end of summer. Honest expectation: a bulk between two cuts means about 14–15% body fat in mid-July and 11–12% by the end of summer. If a shredded mid-July matters more than the bulk, skip stage 2. Stage 1 is the same either way. Week 1 only: the pre-gym sandwich uses chicken breast 80 g cooked instead of tuna 100 g drained (pick it in the Sandwich protein swap). From week 2 it is tuna again. Rules. 1) Three gym days: Sat, Mon, Wed. Two is a pass. Never make up a session. Keep the lifts heavy. 2) One plan, same food every day. Everything is weighed and counted, coffee included. Tick every meal every day, including bad days. Logging stopped after 5 Oct, and that was the first sign. 3) Cardio is planned: 20 minutes of easy incline walking after each lift. Nothing else counts. Daily steps stay around 2,000. 4) Sleep 7 hours or more. 5) One planned flex meal a week, Friday dinner only. 6) Craving at night: water or Coke Zero, then wait 20 minutes. If still hungry, eat the next planned meal early; do not add extra food. 7) Weigh every morning; judge the 7-day average, not the day. Weeks 1 and 2 can read 1.5 kg or more lower from water. After that aim for 0.7–1.0 kg a week. 8) If the 7-day average falls less than 0.5 kg a week for 2 cutting weeks in a row after week 3, add one 30-minute easy cardio visit on Thursday. Food does not go lower. 9) If it falls more than 1.2 kg a week for 2 weeks in a row, add 50 g cooked rice to lunch. 10) Week 5 is where the last cut crashed. If energy is 2 out of 5 or lower, or hunger is 4 out of 5 or higher, on 3 days in one week, take the reset week early instead of skipping sessions. 11) Stage 1 ends on 17 Jan whatever the scale says. Do not extend it.",
   "diet": {
     "type": "cut-tracker-diet-template",
     "version": 3,
@@ -86,10 +86,10 @@
           "name": "Afternoon (pre-gym)",
           "when": "Eat it 45–60 minutes before you leave for the gym, with coffee 2",
           "items": [
-            "bakery fino 55 g",
+            "plain white bakery fino 55 g",
             "tuna in water 100 g drained",
             "tomato and cucumber 100 g",
-            "mustard 1 tsp",
+            "yellow mustard 1 tsp",
             "Nescafé 1 cup with Juhayna skimmed milk 80 ml, no sugar"
           ],
           "kcal": 317,
@@ -97,6 +97,7 @@
           "carbs": 39,
           "fat": 3,
           "swaps": [
+            "swap_sandwich",
             "swap_pregym"
           ],
           "recipes": [
@@ -106,7 +107,9 @@
               "prepMinutes": 5,
               "makes": "1",
               "steps": [
-                "Open the fino. Fill with 100 g drained tuna, 100 g sliced tomato and cucumber, and 1 tsp mustard. No mayo, no oil.",
+                "Weigh the fino: 55 g of plain white bakery fino (about two thirds of a small one, so weigh one whole fino once to learn your size). Brown or bran fino is fine at the same grams.",
+                "Open it. Fill with the protein (100 g drained tuna, or 80 g cooked chicken in week 1), 100 g sliced tomato and cucumber, and 1 tsp yellow mustard.",
+                "Sauces: yellow mustard 1 tsp (counted), hot sauce up to 2 tsp, lemon, vinegar, garlic, salt and pepper are free. No mayo (not even light), ketchup, tahini, BBQ or ranch.",
                 "Eat it 45–60 minutes before the gym. It is your carbs for the session, so do not skip it.",
                 "One Red Bull Zero is allowed 30 minutes before the gym on gym days, instead of coffee 2."
               ]
@@ -224,10 +227,10 @@
           "name": "Afternoon (pre-gym)",
           "when": "Eat it 45–60 minutes before you leave for the gym, with coffee 2",
           "items": [
-            "bakery fino 55 g",
+            "plain white bakery fino 55 g",
             "tuna in water 100 g drained",
             "tomato and cucumber 100 g",
-            "mustard 1 tsp",
+            "yellow mustard 1 tsp",
             "Nescafé 1 cup with Juhayna skimmed milk 80 ml, no sugar"
           ],
           "kcal": 317,
@@ -235,6 +238,7 @@
           "carbs": 39,
           "fat": 3,
           "swaps": [
+            "swap_sandwich",
             "swap_pregym"
           ],
           "recipes": [
@@ -244,7 +248,9 @@
               "prepMinutes": 5,
               "makes": "1",
               "steps": [
-                "Open the fino. Fill with 100 g drained tuna, 100 g sliced tomato and cucumber, and 1 tsp mustard. No mayo, no oil.",
+                "Weigh the fino: 55 g of plain white bakery fino (about two thirds of a small one, so weigh one whole fino once to learn your size). Brown or bran fino is fine at the same grams.",
+                "Open it. Fill with the protein (100 g drained tuna, or 80 g cooked chicken in week 1), 100 g sliced tomato and cucumber, and 1 tsp yellow mustard.",
+                "Sauces: yellow mustard 1 tsp (counted), hot sauce up to 2 tsp, lemon, vinegar, garlic, salt and pepper are free. No mayo (not even light), ketchup, tahini, BBQ or ranch.",
                 "Eat it 45–60 minutes before the gym. It is your carbs for the session, so do not skip it.",
                 "One Red Bull Zero is allowed 30 minutes before the gym on gym days, instead of coffee 2."
               ]
@@ -312,10 +318,18 @@
         ]
       },
       {
+        "id": "swap_sandwich",
+        "label": "Sandwich protein",
+        "options": [
+          "tuna in water 100 g drained (default from week 2)",
+          "chicken breast 80 g cooked (week 1; about +20 kcal, same protein)"
+        ]
+      },
+      {
         "id": "swap_pregym",
         "label": "Pre-gym option",
         "options": [
-          "tuna fino sandwich as written (317 kcal, 35 g protein)",
+          "fino sandwich as written (317 kcal, 35 g protein)",
           "oats bowl: Kayy oats 40 g cooked in 150 ml skim milk, 1 small banana, coffee 2 (314 kcal, 21 g protein)"
         ]
       },
@@ -620,10 +634,17 @@
         "category": "Meat/Fish"
       },
       {
+        "id": "shop_chicken_w1",
+        "name": "chicken breast (raw), week 1 extra",
+        "amount": "0.75 kg",
+        "hint": "Week 1 only: 80 g cooked a day goes in the pre-gym sandwich instead of tuna. Skip the tuna cans this week.",
+        "category": "Meat/Fish"
+      },
+      {
         "id": "shop_tuna",
         "name": "tuna in water",
         "amount": "7 cans of 150 g drained, plus 1 for the dinner swap",
-        "hint": "100 g drained each pre-gym sandwich.",
+        "hint": "From week 2. 100 g drained in each pre-gym sandwich.",
         "category": "Meat/Fish"
       },
       {
@@ -691,8 +712,16 @@
       },
       {
         "id": "shop_mustard",
-        "name": "mustard",
+        "name": "yellow mustard",
         "amount": "1 jar",
+        "hint": "1 tsp a day. Check the label is near 5 kcal a teaspoon, not a sweet honey mustard.",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_hot",
+        "name": "hot sauce or chili sauce",
+        "amount": "1 bottle",
+        "hint": "Up to 2 tsp a day, not counted. Pick one with no sugar in the first ingredients.",
         "category": "Pantry"
       },
       {
