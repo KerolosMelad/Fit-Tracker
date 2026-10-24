@@ -1,0 +1,705 @@
+{
+  "type": "cut-tracker-phase-template",
+  "version": 1,
+  "goalLossPctPerWeek": 0.55,
+  "trainingDaysPerWeek": 3,
+  "notes": "Restart from the true baseline: 90.8 kg and 28.5% body fat (11 Sep). Goal 0.55% a week, about 0.5 kg. Ten weeks lands near 85–86 kg and 24–25% if you hold it. Rules. 1) Three gym days: Sat, Mon, Wed. Two is a pass. Never make up a session. 2) Eat the written meals, weigh cooked food, and tick every meal every day, including bad days. Logging stopped after 5 Oct, and that was the first sign. 3) Steps at least 7,000 a day. Sleep 7 hours or more. 4) One planned flex meal a week, Friday dinner only. Not a day, not a weekend. 5) Craving at night: water, coffee, or Coke Zero, then wait 20 minutes. If still hungry, eat the next planned meal early; do not add extra food. 6) Weigh every morning; judge the 7-day average, not the day. 7) Week 5 and week 9 are reset weeks: 2 sets per exercise and the training-day meals on all 7 days. 8) Cut 100 kcal (rest-day dinner rice 100 g to 70 g) only if the 7-day average falls less than 0.25 kg a week for 2 weeks in a row after week 3. 9) If energy is 2 out of 5 or lower, or hunger is 4 out of 5 or higher, on 3 days in one week, take a reset week early instead of skipping sessions.",
+  "diet": {
+    "type": "cut-tracker-diet-template",
+    "version": 3,
+    "name": "Restart — 1,750 / 1,900 kcal, planned Friday flex meal",
+    "notes": "Egyptian labels. Food only: training day 1913 kcal, rest day 1753 kcal, protein 185–181 g. Two Nescafé with 80 ml Juhayna skim each sit outside this total (about 95 kcal). Coke Zero is allowed; one Red Bull Zero on training days only. Weeks 3–4 ran 1,660 / 1,497 kcal and ended in low energy, cravings, and a week off. These numbers are about 250 kcal higher on purpose. Do not cut below them. Friday dinner may be replaced by one planned flex meal, up to about 900 kcal, protein first, one plate, no leftovers. It is not a day and not a weekend. Week 5 and week 9: eat the training-day meals on all 7 days.",
+    "training": {
+      "label": "Training day",
+      "targets": {
+        "kcal": 1913,
+        "protein": 185,
+        "carbs": 197,
+        "fat": 37
+      },
+      "meals": [
+        {
+          "id": "breakfast",
+          "name": "Breakfast",
+          "when": "Morning",
+          "items": [
+            "Nestlé Country Corn Flakes 40 g",
+            "Juhayna skimmed milk 150 ml",
+            "egg whites 5",
+            "almonds 20 g"
+          ],
+          "kcal": 403,
+          "protein": 30,
+          "carbs": 42,
+          "fat": 11,
+          "swaps": [
+            "swap_whites",
+            "swap_nuts"
+          ],
+          "recipes": []
+        },
+        {
+          "id": "lunch",
+          "name": "Lunch",
+          "when": "Midday at work. This is the fuel meal",
+          "items": [
+            "chicken breast 185 g cooked",
+            "basmati rice 200 g cooked",
+            "vegetables 100 g cooked"
+          ],
+          "kcal": 595,
+          "protein": 64,
+          "carbs": 61,
+          "fat": 8,
+          "swaps": [
+            "swap_protein",
+            "swap_starch"
+          ],
+          "recipes": [
+            {
+              "id": "ke-lunch-rice",
+              "name": "Chicken, rice, veg box",
+              "prepMinutes": 40,
+              "video": "https://youtu.be/bCDHiec7JEY",
+              "makes": "4 training lunches",
+              "steps": [
+                "Bake or pan-spray chicken. Cook basmati in water only.",
+                "Weigh COOKED: chicken 185 g, rice 200 g, vegetables 100 g.",
+                "Eat this at work. Do not save the rice for the evening."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "snack1",
+          "name": "Afternoon",
+          "when": "Mid-afternoon, fruit only",
+          "items": [
+            "apple 1 medium"
+          ],
+          "kcal": 80,
+          "protein": 0,
+          "carbs": 21,
+          "fat": 0,
+          "swaps": [
+            "swap_fruit"
+          ],
+          "recipes": []
+        },
+        {
+          "id": "preGym",
+          "name": "Before the gym",
+          "when": "60 minutes before training. Every training day",
+          "items": [
+            "banana 1 small",
+            "fino 40 g (half a small bakery fino)"
+          ],
+          "kcal": 195,
+          "protein": 5,
+          "carbs": 43,
+          "fat": 1,
+          "swaps": [
+            "swap_fruit"
+          ],
+          "recipes": [
+            {
+              "id": "ke-pre-banana-fino",
+              "name": "Banana and half a fino",
+              "prepMinutes": 2,
+              "makes": "1",
+              "steps": [
+                "Eat this 45–60 minutes before you leave. It is the reason the session feels better than week 5 did.",
+                "Do not skip it to save 195 kcal. A flat session costs more than that.",
+                "One Red Bull Zero is allowed here on a training day, instead of a third coffee."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "afterGym",
+          "name": "Dinner",
+          "when": "After training, at home",
+          "items": [
+            "Domty light mozzarella 120 g",
+            "chicken breast 180 g cooked",
+            "basmati rice 70 g cooked",
+            "vegetables 100 g cooked"
+          ],
+          "kcal": 640,
+          "protein": 86,
+          "carbs": 30,
+          "fat": 17,
+          "swaps": [
+            "swap_cheese",
+            "swap_protein",
+            "swap_starch"
+          ],
+          "recipes": [
+            {
+              "id": "ke-mozzarella-plate",
+              "name": "Chicken with melted light mozzarella",
+              "prepMinutes": 25,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "1 plate",
+              "steps": [
+                "Bake or pan-spray the chicken until cooked. Weigh 180 g cooked.",
+                "Domty light mozzarella is 189 kcal per 100 g. Weigh 120 g and lay it on the hot chicken. Cover 2 minutes until it melts. No cream, no extra oil.",
+                "Basmati 70 g cooked and vegetables 100 g cooked on the side. Spray oil only, inside the 6 spritzes.",
+                "On Friday this is the meal the flex meal replaces. On other nights, eat this and stop."
+              ]
+            },
+            {
+              "id": "ke-halloumi-swap",
+              "name": "Halloumi swap, same plate",
+              "prepMinutes": 20,
+              "makes": "1 plate",
+              "steps": [
+                "Only if you skip the mozzarella that night. Halloumi 70 g matches the 120 g light mozzarella for calories.",
+                "Pat it dry and dry-fry. Chicken stays 180 g cooked. Vegetables stay 100 g.",
+                "Halloumi is saltier, so the next morning can read 0.3–0.5 kg higher from water."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rest": {
+      "label": "Rest day",
+      "targets": {
+        "kcal": 1753,
+        "protein": 181,
+        "carbs": 146,
+        "fat": 44
+      },
+      "meals": [
+        {
+          "id": "breakfast",
+          "name": "Breakfast",
+          "when": "Morning",
+          "items": [
+            "Nestlé Country Corn Flakes 40 g",
+            "Juhayna skimmed milk 150 ml",
+            "egg whites 5",
+            "almonds 20 g"
+          ],
+          "kcal": 403,
+          "protein": 30,
+          "carbs": 42,
+          "fat": 11,
+          "swaps": [
+            "swap_whites",
+            "swap_nuts"
+          ],
+          "recipes": []
+        },
+        {
+          "id": "lunch",
+          "name": "Lunch",
+          "when": "Midday at work. This is the fuel meal",
+          "items": [
+            "chicken breast 185 g cooked",
+            "basmati rice 130 g cooked",
+            "vegetables 100 g cooked"
+          ],
+          "kcal": 504,
+          "protein": 62,
+          "carbs": 42,
+          "fat": 8,
+          "swaps": [
+            "swap_protein",
+            "swap_starch"
+          ],
+          "recipes": [
+            {
+              "id": "ke-lunch-rice",
+              "name": "Chicken, rice, veg box",
+              "prepMinutes": 40,
+              "video": "https://youtu.be/bCDHiec7JEY",
+              "makes": "4 rest lunches",
+              "steps": [
+                "Bake or pan-spray chicken. Cook basmati in water only.",
+                "Weigh COOKED: chicken 185 g, rice 130 g, vegetables 100 g.",
+                "Eat this at work. Do not save the rice for the evening."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "snack1",
+          "name": "Afternoon",
+          "when": "Mid-afternoon",
+          "items": [
+            "apple 1 medium",
+            "almonds 15 g"
+          ],
+          "kcal": 167,
+          "protein": 3,
+          "carbs": 24,
+          "fat": 8,
+          "swaps": [
+            "swap_fruit",
+            "swap_nuts"
+          ],
+          "recipes": []
+        },
+        {
+          "id": "dinner",
+          "name": "Dinner",
+          "when": "Evening at home",
+          "items": [
+            "Domty light mozzarella 120 g",
+            "chicken breast 180 g cooked",
+            "basmati rice 100 g cooked",
+            "vegetables 100 g cooked"
+          ],
+          "kcal": 679,
+          "protein": 86,
+          "carbs": 38,
+          "fat": 17,
+          "swaps": [
+            "swap_cheese",
+            "swap_protein",
+            "swap_starch"
+          ],
+          "recipes": [
+            {
+              "id": "ke-mozzarella-plate",
+              "name": "Chicken with melted light mozzarella",
+              "prepMinutes": 25,
+              "video": "https://youtu.be/2crKMqmDarE",
+              "makes": "1 plate",
+              "steps": [
+                "Bake or pan-spray the chicken until cooked. Weigh 180 g cooked.",
+                "Domty light mozzarella is 189 kcal per 100 g. Weigh 120 g and lay it on the hot chicken. Cover 2 minutes until it melts. No cream, no extra oil.",
+                "Basmati 100 g cooked and vegetables 100 g cooked on the side. Spray oil only, inside the 6 spritzes.",
+                "On Friday this is the meal the flex meal replaces. On other nights, eat this and stop."
+              ]
+            },
+            {
+              "id": "ke-halloumi-swap",
+              "name": "Halloumi swap, same plate",
+              "prepMinutes": 20,
+              "makes": "1 plate",
+              "steps": [
+                "Only if you skip the mozzarella that night. Halloumi 70 g matches the 120 g light mozzarella for calories.",
+                "Pat it dry and dry-fry. Chicken stays 180 g cooked. Vegetables stay 100 g.",
+                "Halloumi is saltier, so the next morning can read 0.3–0.5 kg higher from water."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "foodSwaps": [
+      {
+        "id": "swap_starch",
+        "label": "Starch",
+        "options": [
+          "basmati rice — same cooked grams already written on this meal",
+          "potato cooked — training lunch 250 g, rest lunch 160 g",
+          "fino — training lunch 50 g, rest lunch 30 g"
+        ]
+      },
+      {
+        "id": "swap_protein",
+        "label": "Protein",
+        "options": [
+          "chicken breast — same cooked grams already written on this meal",
+          "tuna in water, drained — same grams as the chicken",
+          "lean steak cooked — 15 g less than the chicken"
+        ]
+      },
+      {
+        "id": "swap_fruit",
+        "label": "Fruit",
+        "options": [
+          "apple 1 medium",
+          "orange 1 large",
+          "banana 1 small",
+          "kiwi 2",
+          "strawberries 200 g",
+          "pineapple 150 g"
+        ]
+      },
+      {
+        "id": "swap_whites",
+        "label": "Egg whites",
+        "options": [
+          "egg whites 5",
+          "carton egg whites 175 ml"
+        ]
+      },
+      {
+        "id": "swap_cheese",
+        "label": "Cheese",
+        "options": [
+          "Domty light mozzarella 120 g",
+          "halloumi 70 g (same calories, less protein)"
+        ]
+      },
+      {
+        "id": "swap_nuts",
+        "label": "Nuts",
+        "options": [
+          "almonds 20 g",
+          "unsalted peanuts 20 g"
+        ]
+      }
+    ],
+    "prep": {
+      "cookDays": [
+        "fri",
+        "tue"
+      ],
+      "eatDays": [
+        "sat",
+        "sun",
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"
+      ],
+      "notes": "Friday: bake chicken for Sat–Tue. Tuesday: bake chicken for Wed–Fri. Cook basmati in water, 200 g cooked at training lunch, 130 g at rest lunch, 70 g at training dinner, 100 g at rest dinner. Almonds stay with breakfast, except 15 g in the rest-day afternoon."
+    }
+  },
+  "training": {
+    "type": "cut-tracker-training-template",
+    "version": 2,
+    "name": "3-day full body (Sat / Mon / Wed)",
+    "notes": "Three evenings: Saturday, Monday, Wednesday. Sun, Tue, Thu, Fri are rest. A week with 2 sessions is a pass. A week with 3 is a good week. Never make up a missed session and never stack two sessions in a day. If Saturday is missed, Monday is the first session. If two sessions are missed in one week, do not change the plan; just do the next scheduled session. Every session is about 18–19 sets and 60 minutes. Stop every set with 1–2 reps in the tank. Hold the load until every set reaches the top of the rep range, then add 2.5–5 kg. Week 1 is a re-entry week after the break: 3 sets on the big lifts at the lighter weights written in the notes. Week 5 is a light week: 2 sets per exercise, same weights. Week 9 is a light week as well. No incline-walk finisher; the step floor of 7,000 replaces it.",
+    "scheduleOverrides": {},
+    "restBetweenSetsSec": 120,
+    "restBetweenExercisesSec": 90,
+    "sessions": [
+      {
+        "id": "session_full_a",
+        "name": "Full Body A Strength",
+        "recommendedWeekday": 6,
+        "proposedTime": "19:30–20:30",
+        "exercises": [
+          {
+            "id": "ex_squat",
+            "name": "Barbell back squat",
+            "youtubeUrl": "https://youtu.be/gcNh17Ckjgg",
+            "targetSets": 4,
+            "targetReps": "5-7",
+            "restBetweenSetsSec": 180,
+            "restAfterExerciseSec": 150,
+            "notes": "Top set 120 kg until you hit 6–7. Leave 1–2 reps in the tank. Week 1 only: 3 sets at about 105 kg."
+          },
+          {
+            "id": "ex_bench",
+            "name": "Barbell bench press",
+            "youtubeUrl": "https://youtu.be/gRVjAtPip0Y",
+            "targetSets": 4,
+            "targetReps": "5-7",
+            "restBetweenSetsSec": 180,
+            "restAfterExerciseSec": 150,
+            "notes": "Hold 80 kg until every set is 6–7. Week 1 only: 3 sets at 72.5 kg."
+          },
+          {
+            "id": "ex_csrow",
+            "name": "Chest supported row",
+            "youtubeUrl": "https://youtu.be/9p4-Xa_8MCw",
+            "targetSets": 3,
+            "targetReps": "8-10",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 120,
+            "notes": "70 kg. Add reps toward 10, then add 2.5–5 kg."
+          },
+          {
+            "id": "ex_legcurl_a",
+            "name": "Seated leg curl",
+            "youtubeUrl": "https://youtu.be/t9sTSr-JYSs",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 90,
+            "restAfterExerciseSec": 75,
+            "notes": "65–75 kg. All 3 sets at 10–12 before any jump in weight."
+          },
+          {
+            "id": "ex_pushdown",
+            "name": "Cable triceps pushdown",
+            "youtubeUrl": "https://youtu.be/_w-HpW70nSQ",
+            "targetSets": 2,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_abcrunch",
+            "name": "Ab crunch machine",
+            "youtubeUrl": "https://youtu.be/_O1xunCfYEM",
+            "targetSets": 2,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 0,
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "id": "session_full_b",
+        "name": "Full Body B Volume",
+        "recommendedWeekday": 1,
+        "proposedTime": "19:30–20:30",
+        "exercises": [
+          {
+            "id": "ex_rdl",
+            "name": "Romanian deadlift",
+            "youtubeUrl": "https://youtu.be/5zmlnbWb-g4",
+            "targetSets": 3,
+            "targetReps": "6-8",
+            "restBetweenSetsSec": 150,
+            "restAfterExerciseSec": 120,
+            "notes": "85 kg. Week 1 only: 75 kg."
+          },
+          {
+            "id": "ex_inclinedb",
+            "name": "Incline dumbbell press",
+            "youtubeUrl": "https://youtu.be/OC7Qs_SAO2E",
+            "targetSets": 3,
+            "targetReps": "8-10",
+            "restBetweenSetsSec": 150,
+            "restAfterExerciseSec": 120,
+            "notes": "50 kg. Add reps first."
+          },
+          {
+            "id": "ex_pulldown",
+            "name": "Lat pulldown",
+            "youtubeUrl": "https://youtu.be/gFHQ5S6rPwo",
+            "targetSets": 3,
+            "targetReps": "8-12",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 120,
+            "notes": "70 kg until you hit 9–10 on every set, then +5 kg."
+          },
+          {
+            "id": "ex_legpress",
+            "name": "Leg press",
+            "youtubeUrl": "https://youtu.be/JcRiV6ubO9U",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 90,
+            "notes": "Hold 130 kg until a set reaches 10 reps. Week 1 only: 112 kg."
+          },
+          {
+            "id": "ex_shoulderpress",
+            "name": "Shoulder press machine",
+            "youtubeUrl": "https://youtu.be/3R14MnZbcpw",
+            "targetSets": 3,
+            "targetReps": "8-10",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 90,
+            "notes": ""
+          },
+          {
+            "id": "ex_calf_standing",
+            "name": "Standing calf raise",
+            "youtubeUrl": "https://youtu.be/3UWi44yN-wM",
+            "targetSets": 2,
+            "targetReps": "8-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_inclinecurl",
+            "name": "Incline dumbbell curl",
+            "youtubeUrl": "https://youtu.be/soxrZlIl35U",
+            "targetSets": 2,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "id": "session_full_c",
+        "name": "Full Body C Hypertrophy",
+        "recommendedWeekday": 3,
+        "proposedTime": "19:30–20:30",
+        "exercises": [
+          {
+            "id": "ex_hipthrust",
+            "name": "Hip thrust",
+            "youtubeUrl": "https://youtu.be/CNgysDAPZ8Q",
+            "targetSets": 3,
+            "targetReps": "8-12",
+            "restBetweenSetsSec": 120,
+            "restAfterExerciseSec": 90,
+            "notes": ""
+          },
+          {
+            "id": "ex_legext",
+            "name": "Leg extension",
+            "youtubeUrl": "https://youtu.be/4ZDm5EbiFI8",
+            "targetSets": 2,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_pullup",
+            "name": "Pull up or assisted pull up",
+            "youtubeUrl": "https://youtu.be/eGo4IYlbE5g",
+            "targetSets": 3,
+            "targetReps": "6-10",
+            "restBetweenSetsSec": 150,
+            "restAfterExerciseSec": 120,
+            "notes": "Last logged: 25 kg assist for 10, 8, 7, 6. Keep the assist and add reps."
+          },
+          {
+            "id": "ex_chestpress",
+            "name": "Chest press machine",
+            "youtubeUrl": "https://youtu.be/sqNwDkUU_Ps",
+            "targetSets": 3,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 90,
+            "restAfterExerciseSec": 75,
+            "notes": ""
+          },
+          {
+            "id": "ex_lateral",
+            "name": "Dumbbell lateral raise",
+            "youtubeUrl": "https://youtu.be/pg3hz43P09w",
+            "targetSets": 3,
+            "targetReps": "12-15",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_ohtriceps",
+            "name": "Overhead cable triceps extension",
+            "youtubeUrl": "https://youtu.be/jhDJNF_WlTc",
+            "targetSets": 2,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 75,
+            "restAfterExerciseSec": 60,
+            "notes": ""
+          },
+          {
+            "id": "ex_cablecurl",
+            "name": "Cable curl",
+            "youtubeUrl": "https://youtu.be/nW7w5vG6IIc",
+            "targetSets": 2,
+            "targetReps": "10-12",
+            "restBetweenSetsSec": 60,
+            "restAfterExerciseSec": 0,
+            "notes": ""
+          }
+        ]
+      }
+    ]
+  },
+  "shoppingList": {
+    "items": [
+      {
+        "id": "shop_1",
+        "name": "chicken breast (raw)",
+        "amount": "3.4 kg",
+        "hint": "One week. Lunch 185 g cooked plus dinner 180 g cooked, 7 days.",
+        "category": "Meat/Fish"
+      },
+      {
+        "id": "shop_2",
+        "name": "egg whites (carton)",
+        "amount": "1.2 L (35 whites, 5 at breakfast)",
+        "category": "Eggs"
+      },
+      {
+        "id": "shop_3",
+        "name": "Domty light mozzarella",
+        "amount": "840 g",
+        "hint": "120 g a night, 6 nights if Friday is the flex meal. Label is 189 kcal per 100 g.",
+        "category": "Dairy & protein"
+      },
+      {
+        "id": "shop_4",
+        "name": "Juhayna skimmed milk",
+        "amount": "2.5 litres",
+        "hint": "150 ml at breakfast plus 80 ml in each of 2 Nescafés. Label is 66 kcal per 200 ml.",
+        "category": "Dairy & protein"
+      },
+      {
+        "id": "shop_5",
+        "name": "Nestlé Country Corn Flakes",
+        "amount": "280 g",
+        "category": "Carbs & grains"
+      },
+      {
+        "id": "shop_6",
+        "name": "basmati rice (dry)",
+        "amount": "600 g",
+        "hint": "Cooked portions: lunch 200 g training / 130 g rest, dinner 70 g training / 100 g rest.",
+        "category": "Carbs & grains"
+      },
+      {
+        "id": "shop_fino",
+        "name": "bakery fino",
+        "amount": "2",
+        "hint": "Half a small fino (40 g) before each gym session.",
+        "category": "Carbs & grains"
+      },
+      {
+        "id": "shop_7",
+        "name": "bananas",
+        "amount": "3 small",
+        "hint": "Pre-gym, every training day.",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_8",
+        "name": "apples",
+        "amount": "7",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_9",
+        "name": "vegetables",
+        "amount": "1.4 kg",
+        "category": "Produce"
+      },
+      {
+        "id": "shop_almonds",
+        "name": "raw almonds",
+        "amount": "200 g",
+        "hint": "20 g at breakfast daily, plus 15 g on rest-day afternoons.",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_nescafe",
+        "name": "Nescafé Classic",
+        "amount": "1 small jar",
+        "hint": "2 cups. 10 g sugar in one cup only.",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_13",
+        "name": "sugar",
+        "amount": "70 g",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_spray",
+        "name": "oil spray",
+        "amount": "1 can",
+        "hint": "6 spritzes a day max.",
+        "category": "Pantry"
+      },
+      {
+        "id": "shop_14",
+        "name": "creatine monohydrate",
+        "amount": "1 tub",
+        "hint": "3–5 g daily.",
+        "category": "Pantry"
+      }
+    ]
+  }
+}

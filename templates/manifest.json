@@ -1,8 +1,13 @@
 {
   "type": "cut-tracker-template-library",
   "version": 2,
-  "updated": "2026-09-25",
+  "updated": "2026-10-24",
   "phase": [
+    {
+      "id": "restart-3day",
+      "name": "Restart — 3 gym days, 1,750 / 1,900 kcal, planned flex meal",
+      "file": "phase-restart-3day.json"
+    },
     {
       "id": "cut-12week-julia",
       "name": "Julia — yogurt bowl, chicken last, 2× gym",

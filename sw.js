@@ -1,5 +1,5 @@
 /* KeJu Fit Tracker — network-first shell; updates apply quietly */
-const CACHE = "keju-shell-v126";
+const CACHE = "keju-shell-v127";
 const SHELL = [
   "./",
   "./index.html",
@@ -14,6 +14,7 @@ const SHELL = [
   "./icon-512.png",
   "./templates/packs.js",
   "./templates/manifest.json",
+  "./templates/phase-restart-3day.json",
   "./templates/phase-cut-weeks-3-4.json",
   "./templates/phase-cut-10week.json",
   "./templates/phase-cut-12week-julia.json",
