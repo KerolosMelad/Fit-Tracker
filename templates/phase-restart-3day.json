@@ -1,21 +1,21 @@
 {
   "type": "cut-tracker-phase-template",
   "version": 1,
-  "goalLossPctPerWeek": 0.6,
+  "goalLossPctPerWeek": 0.75,
   "trainingDaysPerWeek": 3,
-  "notes": "STAGE 1 OF 4: QUICK CUT. Mon 26 Oct 2026 to Sun 14 Mar 2027, 20 weeks: 16 cutting weeks plus reset weeks 5, 10, 15 and 20. Start from the true baseline: 90.8 kg and 28.5% body fat (11 Sep). Expect about 0.65 kg a week in cutting weeks, about 10 kg total, ending near 80–81 kg and 20–21% body fat. Roadmap. Stage 2, from 15 Mar: decision gate. If body fat is 16% or lower, do an 8-week clean bulk. If not (the likely case), do 4 weeks at maintenance and go straight to stage 3. Stage 3: final cut, ending mid-July 2027, about 12% body fat. Stage 4: hold with a small deficit or maintenance through the end of summer, aiming for 10–11%. A surplus bulk before the final cut costs about 8 weeks plus 4 to 5 extra cutting weeks, so it would not fit before mid-July from this starting point. Decide at the gate. Rules. 1) Three gym days: Sat, Mon, Wed. Two is a pass. Never make up a session. 2) One plan, same food every day. Everything is weighed and counted, coffee included. Tick every meal every day, including bad days. Logging stopped after 5 Oct, and that was the first sign. 3) Cardio is planned: 15 minutes of easy incline walking after each lift. Nothing else counts. Daily steps stay around 2,000. 4) Sleep 7 hours or more. 5) One planned flex meal a week, Friday dinner only. 6) Craving at night: water or Coke Zero, then wait 20 minutes. If still hungry, eat the next planned meal early; do not add extra food. 7) Weigh every morning; judge the 7-day average, not the day. Weeks 1 and 2 can read 1 kg or more lower from water. After that aim for 0.5–0.8 kg a week. 8) If the 7-day average falls less than 0.35 kg a week for 2 cutting weeks in a row after week 3, add one 30-minute easy cardio visit on Thursday. Only if that is not enough, take afternoon almonds out (10 g to 0). 9) If it falls more than 1 kg a week for 2 weeks in a row after week 3, add 100 g cooked rice to dinner. 10) If energy is 2 out of 5 or lower, or hunger is 4 out of 5 or higher, on 3 days in one week, take a reset week early instead of skipping sessions.",
+  "notes": "STAGE 1 OF 4: QUICK CUT. Mon 26 Oct 2026 to Sun 17 Jan 2027, 12 weeks: 10 cutting weeks plus reset weeks 6 and 12. Start from the true baseline: 90.8 kg and 28.5% body fat (11 Sep). Expect 0.7–1.0 kg a week in cutting weeks, about 8 kg total, ending near 82–83 kg and 22–23% body fat. Roadmap. Stage 2, 18 Jan to about 11 Apr, 12 weeks: clean bulk with a small surplus and heavier lifting. Stage 3, 12 Apr to mid-July: second cut. Stage 4: hold or finish the cut through the end of summer. Honest expectation: a bulk between two cuts means about 14–15% body fat in mid-July and 11–12% by the end of summer. If a shredded mid-July matters more than the bulk, skip stage 2. Stage 1 is the same either way. Rules. 1) Three gym days: Sat, Mon, Wed. Two is a pass. Never make up a session. Keep the lifts heavy. 2) One plan, same food every day. Everything is weighed and counted, coffee included. Tick every meal every day, including bad days. Logging stopped after 5 Oct, and that was the first sign. 3) Cardio is planned: 20 minutes of easy incline walking after each lift. Nothing else counts. Daily steps stay around 2,000. 4) Sleep 7 hours or more. 5) One planned flex meal a week, Friday dinner only. 6) Craving at night: water or Coke Zero, then wait 20 minutes. If still hungry, eat the next planned meal early; do not add extra food. 7) Weigh every morning; judge the 7-day average, not the day. Weeks 1 and 2 can read 1.5 kg or more lower from water. After that aim for 0.7–1.0 kg a week. 8) If the 7-day average falls less than 0.5 kg a week for 2 cutting weeks in a row after week 3, add one 30-minute easy cardio visit on Thursday. Food does not go lower. 9) If it falls more than 1.2 kg a week for 2 weeks in a row, add 50 g cooked rice to lunch. 10) Week 5 is where the last cut crashed. If energy is 2 out of 5 or lower, or hunger is 4 out of 5 or higher, on 3 days in one week, take the reset week early instead of skipping sessions. 11) Stage 1 ends on 17 Jan whatever the scale says. Do not extend it.",
   "diet": {
     "type": "cut-tracker-diet-template",
     "version": 3,
     "name": "Stage 1 quick cut — Kayy oats, Dina cottage cheese, one plan every day",
-    "notes": "One plan, same food every day, no carb cycling. Everything is counted, coffee and sugar included: 1747 kcal, protein 187 g, carbs 156 g, fat 37 g (about 43% protein, 36% carbs, 19% fat). Weigh dry oats before cooking; weigh chicken, rice and vegetables cooked. Values used: Kayy high protein oats 372 kcal, 30 g protein, 61 g carbs, 1 g fat per 100 g (pack label as listed online). Dina Farms cottage cheese is ASSUMED at 100 kcal, 12 g protein, 3.5 g carbs, 4 g fat per 100 g because no label is published online. Check your tub and correct the plan if it differs. Coke Zero is free. One Red Bull Zero on gym days replaces coffee 2. Spray oil: 6 spritzes a day, not counted. Anything not written here is not eaten. Do not drop below this plan. Reset weeks (5, 10, 15, 20): add oats 40 g to breakfast, one extra small banana in the afternoon, and rice 150 g cooked to dinner. That is about +430 kcal a day, close to maintenance. Friday dinner may be replaced by one planned flex meal of up to about 900 kcal, protein first, one plate, no leftovers.",
+    "notes": "One plan, same food every day, no carb cycling. Everything is counted, coffee included: 1676 kcal, protein 178 g, carbs 155 g, fat 36 g (about 42% protein, 37% carbs, 19% fat). Weigh dry oats before cooking; weigh chicken and rice cooked; tuna drained. Values used: Kayy high protein oats 372 kcal, 30 g protein, 61 g carbs, 1 g fat per 100 g (pack label as listed online). Dina Farms cottage cheese is ASSUMED at 100 kcal, 12 g protein, 3.5 g carbs, 4 g fat per 100 g because no label is published online. Check your tub and correct the plan if it differs. No sugar this stage. Coke Zero is free. One Red Bull Zero on gym days replaces coffee 2. Spray oil: 6 spritzes a day, not counted. Anything not written here is not eaten. This is a short, hard cut, so it ends on schedule: do not extend it and do not go lower. Reset weeks (6 and 12): breakfast oats 90 g instead of 50 g, lunch rice 180 g instead of 100 g, one extra small banana in the afternoon, dinner fino 80 g instead of 40 g. That is about +450 kcal a day. Friday dinner may be replaced by one planned flex meal of up to about 900 kcal, protein first, one plate, no leftovers.",
     "training": {
       "label": "Every day (gym day)",
       "targets": {
-        "kcal": 1747,
-        "protein": 187,
-        "carbs": 156,
-        "fat": 37
+        "kcal": 1676,
+        "protein": 178,
+        "carbs": 155,
+        "fat": 36
       },
       "meals": [
         {
@@ -23,14 +23,14 @@
           "name": "Breakfast",
           "when": "Morning, with coffee 1",
           "items": [
-            "Kayy high protein oats 60 g dry",
+            "Kayy high protein oats 50 g dry",
             "Juhayna skimmed milk 200 ml (to cook the oats)",
-            "whole eggs 2",
-            "Nescafé 1 cup with Juhayna skimmed milk 80 ml and sugar 10 g"
+            "whole eggs 2 (boiled)",
+            "Nescafé 1 cup with Juhayna skimmed milk 80 ml, no sugar"
           ],
-          "kcal": 504,
-          "protein": 40,
-          "carbs": 61,
+          "kcal": 426,
+          "protein": 37,
+          "carbs": 45,
           "fat": 10,
           "swaps": [
             "swap_eggs"
@@ -38,13 +38,13 @@
           "recipes": [
             {
               "id": "ke-breakfast-oats",
-              "name": "Protein oats and eggs",
+              "name": "Protein oats and boiled eggs",
               "prepMinutes": 10,
               "makes": "1",
               "steps": [
-                "Oats 60 g dry weighed before cooking, with 200 ml Juhayna skimmed milk. Microwave 2–3 minutes and stir.",
+                "Oats 50 g dry weighed before cooking, with 200 ml Juhayna skimmed milk. Microwave 2–3 minutes and stir.",
                 "Boil the 2 whole eggs and eat them on the side. No oil, no butter.",
-                "Coffee 1: Nescafé, 80 ml milk, the only sugar of the day (10 g)."
+                "Coffee 1: Nescafé and 80 ml milk. No sugar. Sweetener is free."
               ]
             }
           ]
@@ -54,14 +54,14 @@
           "name": "Lunch",
           "when": "Midday at work",
           "items": [
-            "chicken breast 185 g cooked",
-            "basmati rice 120 g cooked",
+            "chicken breast 200 g cooked",
+            "basmati rice 100 g cooked",
             "vegetables 150 g cooked"
           ],
-          "kcal": 506,
-          "protein": 64,
-          "carbs": 41,
-          "fat": 7,
+          "kcal": 505,
+          "protein": 68,
+          "carbs": 36,
+          "fat": 8,
           "swaps": [
             "swap_protein",
             "swap_starch"
@@ -75,7 +75,7 @@
               "makes": "4 lunches",
               "steps": [
                 "Bake or pan-spray chicken. Cook basmati in water only.",
-                "Weigh COOKED: chicken 185 g, rice 120 g, vegetables 150 g.",
+                "Weigh COOKED: chicken 200 g, rice 100 g, vegetables 150 g.",
                 "Spray oil only, inside the 6 spritzes."
               ]
             }
@@ -83,31 +83,31 @@
         },
         {
           "id": "snack1",
-          "name": "Afternoon",
+          "name": "Afternoon (pre-gym)",
           "when": "Eat it 45–60 minutes before you leave for the gym, with coffee 2",
           "items": [
-            "banana 1 small",
-            "Dina Farms cottage cheese 120 g",
-            "almonds 10 g (about 8 nuts)",
+            "bakery fino 55 g",
+            "tuna in water 100 g drained",
+            "tomato and cucumber 100 g",
+            "mustard 1 tsp",
             "Nescafé 1 cup with Juhayna skimmed milk 80 ml, no sugar"
           ],
-          "kcal": 293,
-          "protein": 20,
-          "carbs": 32,
-          "fat": 10,
+          "kcal": 317,
+          "protein": 35,
+          "carbs": 39,
+          "fat": 3,
           "swaps": [
-            "swap_fruit",
-            "swap_nuts"
+            "swap_pregym"
           ],
           "recipes": [
             {
-              "id": "ke-afternoon-cottage",
-              "name": "Cottage cheese, banana, almonds",
-              "prepMinutes": 3,
+              "id": "ke-afternoon-tuna-fino",
+              "name": "Tuna fino sandwich",
+              "prepMinutes": 5,
               "makes": "1",
               "steps": [
-                "Cottage cheese 120 g in a bowl, sliced banana on top, 10 g almonds.",
-                "Same snack every day. On gym days it is your pre-workout.",
+                "Open the fino. Fill with 100 g drained tuna, 100 g sliced tomato and cucumber, and 1 tsp mustard. No mayo, no oil.",
+                "Eat it 45–60 minutes before the gym. It is your carbs for the session, so do not skip it.",
                 "One Red Bull Zero is allowed 30 minutes before the gym on gym days, instead of coffee 2."
               ]
             }
@@ -118,29 +118,29 @@
           "name": "Dinner",
           "when": "Evening at home. After the gym on gym days",
           "items": [
-            "chicken breast 150 g cooked",
-            "Dina Farms cottage cheese 100 g (blended into the sauce)",
-            "vegetables 150 g cooked",
-            "basmati rice 40 g cooked"
+            "whole eggs 2",
+            "egg whites 2",
+            "tomato and cucumber 200 g (tomato cooked into the pan)",
+            "Dina Farms cottage cheese 100 g",
+            "bakery fino 40 g"
           ],
-          "kcal": 444,
-          "protein": 63,
-          "carbs": 22,
-          "fat": 10,
+          "kcal": 428,
+          "protein": 38,
+          "carbs": 35,
+          "fat": 15,
           "swaps": [
-            "swap_protein"
+            "swap_dinner"
           ],
           "recipes": [
             {
-              "id": "ke-dinner-cottage-sauce",
-              "name": "Chicken with garlic and lemon cottage sauce",
-              "prepMinutes": 25,
+              "id": "ke-dinner-shakshuka",
+              "name": "Eggs in tomato with cottage cheese",
+              "prepMinutes": 15,
               "makes": "1 plate",
               "steps": [
-                "Bake or pan-spray the chicken. Weigh 150 g cooked.",
-                "Blend 100 g cottage cheese with garlic, lemon juice, salt, and a splash of water until smooth. No oil.",
-                "Pour over the chicken. Vegetables 150 g cooked and rice 40 g cooked on the side.",
-                "Eat this and stop. The kitchen closes after dinner."
+                "Spray a pan once. Cook 150 g chopped tomato with salt, pepper, and cumin for 5 minutes until saucy.",
+                "Crack in the 2 whole eggs and pour the 2 whites around them. Cover until set.",
+                "Cottage cheese 100 g on the side, 50 g cucumber on the plate, and fino 40 g to scoop. Nothing else is eaten after this."
               ]
             }
           ]
@@ -150,10 +150,10 @@
     "rest": {
       "label": "Every day (rest day)",
       "targets": {
-        "kcal": 1747,
-        "protein": 187,
-        "carbs": 156,
-        "fat": 37
+        "kcal": 1676,
+        "protein": 178,
+        "carbs": 155,
+        "fat": 36
       },
       "meals": [
         {
@@ -161,14 +161,14 @@
           "name": "Breakfast",
           "when": "Morning, with coffee 1",
           "items": [
-            "Kayy high protein oats 60 g dry",
+            "Kayy high protein oats 50 g dry",
             "Juhayna skimmed milk 200 ml (to cook the oats)",
-            "whole eggs 2",
-            "Nescafé 1 cup with Juhayna skimmed milk 80 ml and sugar 10 g"
+            "whole eggs 2 (boiled)",
+            "Nescafé 1 cup with Juhayna skimmed milk 80 ml, no sugar"
           ],
-          "kcal": 504,
-          "protein": 40,
-          "carbs": 61,
+          "kcal": 426,
+          "protein": 37,
+          "carbs": 45,
           "fat": 10,
           "swaps": [
             "swap_eggs"
@@ -176,13 +176,13 @@
           "recipes": [
             {
               "id": "ke-breakfast-oats",
-              "name": "Protein oats and eggs",
+              "name": "Protein oats and boiled eggs",
               "prepMinutes": 10,
               "makes": "1",
               "steps": [
-                "Oats 60 g dry weighed before cooking, with 200 ml Juhayna skimmed milk. Microwave 2–3 minutes and stir.",
+                "Oats 50 g dry weighed before cooking, with 200 ml Juhayna skimmed milk. Microwave 2–3 minutes and stir.",
                 "Boil the 2 whole eggs and eat them on the side. No oil, no butter.",
-                "Coffee 1: Nescafé, 80 ml milk, the only sugar of the day (10 g)."
+                "Coffee 1: Nescafé and 80 ml milk. No sugar. Sweetener is free."
               ]
             }
           ]
@@ -192,14 +192,14 @@
           "name": "Lunch",
           "when": "Midday at work",
           "items": [
-            "chicken breast 185 g cooked",
-            "basmati rice 120 g cooked",
+            "chicken breast 200 g cooked",
+            "basmati rice 100 g cooked",
             "vegetables 150 g cooked"
           ],
-          "kcal": 506,
-          "protein": 64,
-          "carbs": 41,
-          "fat": 7,
+          "kcal": 505,
+          "protein": 68,
+          "carbs": 36,
+          "fat": 8,
           "swaps": [
             "swap_protein",
             "swap_starch"
@@ -213,7 +213,7 @@
               "makes": "4 lunches",
               "steps": [
                 "Bake or pan-spray chicken. Cook basmati in water only.",
-                "Weigh COOKED: chicken 185 g, rice 120 g, vegetables 150 g.",
+                "Weigh COOKED: chicken 200 g, rice 100 g, vegetables 150 g.",
                 "Spray oil only, inside the 6 spritzes."
               ]
             }
@@ -221,31 +221,31 @@
         },
         {
           "id": "snack1",
-          "name": "Afternoon",
+          "name": "Afternoon (pre-gym)",
           "when": "Eat it 45–60 minutes before you leave for the gym, with coffee 2",
           "items": [
-            "banana 1 small",
-            "Dina Farms cottage cheese 120 g",
-            "almonds 10 g (about 8 nuts)",
+            "bakery fino 55 g",
+            "tuna in water 100 g drained",
+            "tomato and cucumber 100 g",
+            "mustard 1 tsp",
             "Nescafé 1 cup with Juhayna skimmed milk 80 ml, no sugar"
           ],
-          "kcal": 293,
-          "protein": 20,
-          "carbs": 32,
-          "fat": 10,
+          "kcal": 317,
+          "protein": 35,
+          "carbs": 39,
+          "fat": 3,
           "swaps": [
-            "swap_fruit",
-            "swap_nuts"
+            "swap_pregym"
           ],
           "recipes": [
             {
-              "id": "ke-afternoon-cottage",
-              "name": "Cottage cheese, banana, almonds",
-              "prepMinutes": 3,
+              "id": "ke-afternoon-tuna-fino",
+              "name": "Tuna fino sandwich",
+              "prepMinutes": 5,
               "makes": "1",
               "steps": [
-                "Cottage cheese 120 g in a bowl, sliced banana on top, 10 g almonds.",
-                "Same snack every day. On gym days it is your pre-workout.",
+                "Open the fino. Fill with 100 g drained tuna, 100 g sliced tomato and cucumber, and 1 tsp mustard. No mayo, no oil.",
+                "Eat it 45–60 minutes before the gym. It is your carbs for the session, so do not skip it.",
                 "One Red Bull Zero is allowed 30 minutes before the gym on gym days, instead of coffee 2."
               ]
             }
@@ -256,29 +256,29 @@
           "name": "Dinner",
           "when": "Evening at home. After the gym on gym days",
           "items": [
-            "chicken breast 150 g cooked",
-            "Dina Farms cottage cheese 100 g (blended into the sauce)",
-            "vegetables 150 g cooked",
-            "basmati rice 40 g cooked"
+            "whole eggs 2",
+            "egg whites 2",
+            "tomato and cucumber 200 g (tomato cooked into the pan)",
+            "Dina Farms cottage cheese 100 g",
+            "bakery fino 40 g"
           ],
-          "kcal": 444,
-          "protein": 63,
-          "carbs": 22,
-          "fat": 10,
+          "kcal": 428,
+          "protein": 38,
+          "carbs": 35,
+          "fat": 15,
           "swaps": [
-            "swap_protein"
+            "swap_dinner"
           ],
           "recipes": [
             {
-              "id": "ke-dinner-cottage-sauce",
-              "name": "Chicken with garlic and lemon cottage sauce",
-              "prepMinutes": 25,
+              "id": "ke-dinner-shakshuka",
+              "name": "Eggs in tomato with cottage cheese",
+              "prepMinutes": 15,
               "makes": "1 plate",
               "steps": [
-                "Bake or pan-spray the chicken. Weigh 150 g cooked.",
-                "Blend 100 g cottage cheese with garlic, lemon juice, salt, and a splash of water until smooth. No oil.",
-                "Pour over the chicken. Vegetables 150 g cooked and rice 40 g cooked on the side.",
-                "Eat this and stop. The kitchen closes after dinner."
+                "Spray a pan once. Cook 150 g chopped tomato with salt, pepper, and cumin for 5 minutes until saucy.",
+                "Crack in the 2 whole eggs and pour the 2 whites around them. Cover until set.",
+                "Cottage cheese 100 g on the side, 50 g cucumber on the plate, and fino 40 g to scoop. Nothing else is eaten after this."
               ]
             }
           ]
@@ -290,43 +290,41 @@
         "id": "swap_starch",
         "label": "Starch (lunch)",
         "options": [
-          "basmati rice 120 g cooked",
-          "potato cooked 180 g",
-          "fino 55 g"
+          "basmati rice 100 g cooked",
+          "potato cooked 150 g",
+          "fino 45 g"
         ]
       },
       {
         "id": "swap_protein",
-        "label": "Protein",
+        "label": "Protein (lunch)",
         "options": [
-          "chicken breast cooked, grams as written",
-          "tuna in water, drained, 1.2× the chicken grams (about 50 kcal less on lunch)"
-        ]
-      },
-      {
-        "id": "swap_fruit",
-        "label": "Fruit",
-        "options": [
-          "banana 1 small",
-          "apple 1 medium",
-          "orange 1 large",
-          "strawberries 200 g"
+          "chicken breast 200 g cooked",
+          "tuna in water drained 240 g (about 60 kcal less)"
         ]
       },
       {
         "id": "swap_eggs",
-        "label": "Eggs",
+        "label": "Breakfast eggs",
         "options": [
           "whole eggs 2",
           "whole egg 1 plus egg whites 3 (about 20 kcal less)"
         ]
       },
       {
-        "id": "swap_nuts",
-        "label": "Nuts",
+        "id": "swap_pregym",
+        "label": "Pre-gym option",
         "options": [
-          "almonds 10 g",
-          "unsalted peanuts 10 g"
+          "tuna fino sandwich as written (317 kcal, 35 g protein)",
+          "oats bowl: Kayy oats 40 g cooked in 150 ml skim milk, 1 small banana, coffee 2 (314 kcal, 21 g protein)"
+        ]
+      },
+      {
+        "id": "swap_dinner",
+        "label": "Dinner option",
+        "options": [
+          "eggs in tomato with cottage cheese as written (428 kcal, 38 g protein)",
+          "tuna bowl: tuna 100 g drained, 1 whole egg, 2 whites boiled, cottage cheese 60 g, tomato and cucumber 200 g, fino 40 g (426 kcal, 52 g protein)"
         ]
       }
     ],
@@ -344,14 +342,14 @@
         "thu",
         "fri"
       ],
-      "notes": "Friday: cook chicken for Sat–Tue and rice for the first 4 days. Tuesday: cook chicken and rice for Wed–Fri. Weigh cooked portions into boxes: lunch chicken 185 g, rice 120 g, vegetables 150 g; dinner chicken 150 g, rice 40 g, vegetables 150 g."
+      "notes": "Friday: cook chicken for Sat–Tue and rice for the first 4 days. Tuesday: cook chicken and rice for Wed–Fri. Weigh cooked portions into boxes: chicken 200 g, rice 100 g, vegetables 150 g. Boil eggs for breakfast the night before."
     }
   },
   "training": {
     "type": "cut-tracker-training-template",
     "version": 2,
     "name": "Stage 1 — 3-day full body (Sat / Mon / Wed)",
-    "notes": "Three evenings: Saturday, Monday, Wednesday. Sun, Tue, Thu, Fri are rest. A week with 2 sessions is a pass. A week with 3 is a good week. Never make up a missed session and never stack two sessions in a day. If Saturday is missed, Monday is the first session. If two sessions are missed in one week, do not change the plan; just do the next scheduled session. Every session is about 18–19 sets, 60 minutes of lifting plus the 15-minute walk. Stop every set with 1–2 reps in the tank. Hold the load until every set reaches the top of the rep range, then add 2.5–5 kg. Week 1 is a re-entry week after the break: 3 sets on the big lifts at the lighter weights written in the notes. Weeks 5, 10, 15 and 20 are reset weeks: 2 sets per exercise, same weights, and more food (see the diet notes). Cardio is planned, not left to chance: 15 minutes of easy incline walking after each lift, 3 times a week. You only walk between home, work, and the gym, so daily steps stay around 2,000 and are not part of the plan. If the 7-day average stalls after week 3, the first lever is one extra 30-minute easy cardio visit on Thursday, before any food is cut.",
+    "notes": "Three evenings: Saturday, Monday, Wednesday. Sun, Tue, Thu, Fri are rest. A week with 2 sessions is a pass. A week with 3 is a good week. Never make up a missed session and never stack two sessions in a day. If Saturday is missed, Monday is the first session. If two sessions are missed in one week, do not change the plan; just do the next scheduled session. Every session is about 18–19 sets, 60 minutes of lifting plus the 20-minute walk. Stop every set with 1–2 reps in the tank. Hold the load until every set reaches the top of the rep range, then add 2.5–5 kg. Week 1 is a re-entry week after the break: 3 sets on the big lifts at the lighter weights written in the notes. Weeks 6 and 12 are reset weeks: 2 sets per exercise, same weights, and more food (see the diet notes). Keep the weights heavy through the whole cut; the goal is to arrive at the next stage with the same strength, not less. Cardio is planned, not left to chance: 20 minutes of easy incline walking after each lift, 3 times a week. You only walk between home, work, and the gym, so daily steps stay around 2,000 and are not part of the plan. If the 7-day average stalls after week 3, the first lever is one extra 30-minute easy cardio visit on Thursday; food does not go lower than the plan.",
     "scheduleOverrides": {},
     "restBetweenSetsSec": 120,
     "restBetweenExercisesSec": 90,
@@ -360,7 +358,7 @@
         "id": "session_full_a",
         "name": "Full Body A Strength",
         "recommendedWeekday": 6,
-        "proposedTime": "19:30–20:45",
+        "proposedTime": "19:30–20:50",
         "exercises": [
           {
             "id": "ex_squat",
@@ -427,10 +425,10 @@
             "name": "Incline walk finisher",
             "youtubeUrl": "https://youtu.be/RO1IRfIKlWM",
             "targetSets": 1,
-            "targetReps": "15 min easy",
+            "targetReps": "20 min easy",
             "restBetweenSetsSec": 0,
             "restAfterExerciseSec": 0,
-            "notes": "Planned cardio. Easy incline, a pace where you can talk, 15 minutes after the last lift. It is the only cardio in the week and it is counted in the plan. Skip it only if you were too flat to start the session."
+            "notes": "Planned cardio. Easy incline, a pace where you can talk, 20 minutes after the last lift. It is the only cardio in the week and it is counted in the plan. Skip it only if you were too flat to start the session."
           }
         ]
       },
@@ -438,7 +436,7 @@
         "id": "session_full_b",
         "name": "Full Body B Volume",
         "recommendedWeekday": 1,
-        "proposedTime": "19:30–20:45",
+        "proposedTime": "19:30–20:50",
         "exercises": [
           {
             "id": "ex_rdl",
@@ -515,10 +513,10 @@
             "name": "Incline walk finisher",
             "youtubeUrl": "https://youtu.be/RO1IRfIKlWM",
             "targetSets": 1,
-            "targetReps": "15 min easy",
+            "targetReps": "20 min easy",
             "restBetweenSetsSec": 0,
             "restAfterExerciseSec": 0,
-            "notes": "Planned cardio. Easy incline, a pace where you can talk, 15 minutes after the last lift. It is the only cardio in the week and it is counted in the plan. Skip it only if you were too flat to start the session."
+            "notes": "Planned cardio. Easy incline, a pace where you can talk, 20 minutes after the last lift. It is the only cardio in the week and it is counted in the plan. Skip it only if you were too flat to start the session."
           }
         ]
       },
@@ -526,7 +524,7 @@
         "id": "session_full_c",
         "name": "Full Body C Hypertrophy",
         "recommendedWeekday": 3,
-        "proposedTime": "19:30–20:45",
+        "proposedTime": "19:30–20:50",
         "exercises": [
           {
             "id": "ex_hipthrust",
@@ -603,10 +601,10 @@
             "name": "Incline walk finisher",
             "youtubeUrl": "https://youtu.be/RO1IRfIKlWM",
             "targetSets": 1,
-            "targetReps": "15 min easy",
+            "targetReps": "20 min easy",
             "restBetweenSetsSec": 0,
             "restAfterExerciseSec": 0,
-            "notes": "Planned cardio. Easy incline, a pace where you can talk, 15 minutes after the last lift. It is the only cardio in the week and it is counted in the plan. Skip it only if you were too flat to start the session."
+            "notes": "Planned cardio. Easy incline, a pace where you can talk, 20 minutes after the last lift. It is the only cardio in the week and it is counted in the plan. Skip it only if you were too flat to start the session."
           }
         ]
       }
@@ -617,29 +615,50 @@
       {
         "id": "shop_1",
         "name": "chicken breast (raw)",
-        "amount": "3.1 kg",
-        "hint": "One week. Lunch 185 g cooked plus dinner 150 g cooked, 7 days.",
+        "amount": "1.9 kg",
+        "hint": "One week. 200 g cooked at lunch, 7 days.",
+        "category": "Meat/Fish"
+      },
+      {
+        "id": "shop_tuna",
+        "name": "tuna in water",
+        "amount": "7 cans of 150 g drained, plus 1 for the dinner swap",
+        "hint": "100 g drained each pre-gym sandwich.",
         "category": "Meat/Fish"
       },
       {
         "id": "shop_eggs",
         "name": "whole eggs",
-        "amount": "14",
-        "hint": "2 at breakfast daily.",
+        "amount": "28",
+        "hint": "2 at breakfast and 2 at dinner, daily.",
+        "category": "Eggs"
+      },
+      {
+        "id": "shop_2",
+        "name": "egg whites (carton)",
+        "amount": "0.5 L (14 whites)",
+        "hint": "2 at dinner daily.",
         "category": "Eggs"
       },
       {
         "id": "shop_oats",
         "name": "Kayy high protein oats",
-        "amount": "420 g (500 g in reset weeks)",
-        "hint": "60 g dry a day.",
+        "amount": "350 g (630 g in reset weeks)",
+        "hint": "50 g dry a day.",
+        "category": "Carbs & grains"
+      },
+      {
+        "id": "shop_fino",
+        "name": "bakery fino",
+        "amount": "8 small",
+        "hint": "55 g in the sandwich and 40 g at dinner, daily. About 95 g a day, a small fino is about 80 g.",
         "category": "Carbs & grains"
       },
       {
         "id": "shop_cottage",
         "name": "Dina Farms cottage cheese",
-        "amount": "1.6 kg (4 tubs of 450 g)",
-        "hint": "120 g afternoon plus 100 g in the dinner sauce, daily.",
+        "amount": "700 g (2 tubs of 450 g)",
+        "hint": "100 g at dinner daily.",
         "category": "Dairy & protein"
       },
       {
@@ -652,49 +671,35 @@
       {
         "id": "shop_6",
         "name": "basmati rice (dry)",
-        "amount": "400 g",
-        "hint": "Cooked portions: 120 g lunch, 40 g dinner.",
+        "amount": "250 g",
+        "hint": "100 g cooked at lunch.",
         "category": "Carbs & grains"
       },
       {
-        "id": "shop_7",
-        "name": "bananas",
-        "amount": "7 small",
-        "hint": "Afternoon snack, daily. Double in reset weeks.",
-        "category": "Produce"
-      },
-      {
         "id": "shop_9",
-        "name": "vegetables",
-        "amount": "2.1 kg",
-        "hint": "150 g cooked at lunch and dinner.",
+        "name": "vegetables for lunch",
+        "amount": "1.1 kg",
+        "hint": "150 g cooked at lunch.",
         "category": "Produce"
       },
       {
-        "id": "shop_garlic",
-        "name": "garlic and lemons",
-        "amount": "1 head, 3 lemons",
-        "hint": "For the dinner cottage sauce.",
+        "id": "shop_salad",
+        "name": "tomatoes and cucumbers",
+        "amount": "2.2 kg",
+        "hint": "100 g in the sandwich and 200 g at dinner, daily.",
         "category": "Produce"
       },
       {
-        "id": "shop_almonds",
-        "name": "raw almonds",
-        "amount": "100 g",
-        "hint": "10 g a day.",
+        "id": "shop_mustard",
+        "name": "mustard",
+        "amount": "1 jar",
         "category": "Pantry"
       },
       {
         "id": "shop_nescafe",
         "name": "Nescafé Classic",
         "amount": "1 small jar",
-        "hint": "2 cups a day. 10 g sugar in coffee 1 only.",
-        "category": "Pantry"
-      },
-      {
-        "id": "shop_13",
-        "name": "sugar",
-        "amount": "70 g",
+        "hint": "2 cups a day, no sugar.",
         "category": "Pantry"
       },
       {
