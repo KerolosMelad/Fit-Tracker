@@ -1,5 +1,5 @@
 /* KeJu Fit Tracker — network-first shell; updates apply quietly */
-const CACHE = "keju-shell-v127";
+const CACHE = "keju-shell-v128";
 const SHELL = [
   "./",
   "./index.html",
