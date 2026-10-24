@@ -1244,7 +1244,7 @@ const FALLBACK_PHASE_LIBRARY = {
   phase: [
     {
       id: "restart-3day",
-      name: "Restart — 3 gym days, 1,750 / 1,900 kcal, planned flex meal",
+      name: "Restart — 3 gym days, one balanced diet, planned cardio",
       file: "phase-restart-3day.json",
     },
     {
